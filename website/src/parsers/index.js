@@ -1,4 +1,5 @@
-const localRequire = require.context('./', true, /^\.\/(?!utils)[^/]+\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
+// const localRequire = require.context('./', true, /^\.\/(?!utils)[^/]+\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
+const localRequire = require.context('./', true, /^\.\/(md|txt)\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
 
 const files =
   localRequire.keys()
@@ -57,7 +58,8 @@ export const categories =
   });
 
 export function getDefaultCategory() {
-  return categoryByID.javascript;
+  return categoryByID["markdown"];
+  // return categoryByID.javascript;
 }
 
 export function getDefaultParser(category = getDefaultCategory()) {
