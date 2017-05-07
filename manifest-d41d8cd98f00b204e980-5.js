@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>textlint AST explorer</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="An online AST explorer.">
-    <script>/******/ (function(modules) { // webpackBootstrap
+/******/ (function(modules) { // webpackBootstrap
 /******/ 	// install a JSONP callback for chunk loading
 /******/ 	var parentJsonpFunction = window["webpackJsonp"];
 /******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules, executeModules) {
@@ -148,23 +142,4 @@
 /******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
 /******/ })
 /************************************************************************/
-/******/ ([]);</script>
-  <link rel="shortcut icon" href="favicon.png"><link href="vendor-a24f2f2d527234c0b2e6.css" rel="stylesheet"><link href="style-6400054830231ec0c43d.css" rel="stylesheet"><link href="app-8ab08307b358174a7a3e.css" rel="stylesheet"></head>
-  <body>
-    <div id="page">
-      <div id="container"></div>
-      <div id="contribution">
-        Built with
-        <a href="http://facebook.github.io/react/">React</a>,
-        <a href="http://babeljs.io/">Babel</a>,
-        <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
-        <a href="http://codemirror.net/">CodeMirror</a>
-        <a href="https://expressjs.com">Express</a>
-        and
-        <a href="https://webpack.github.io/">WebPack</a>
-        |
-        <a href="https://github.com/textlint/astexplorer">GitHub</a>
-      </div>
-    </div>
-  <script type="text/javascript" src="vendor-a24f2f2d527234c0b2e6-5.js"></script><script type="text/javascript" src="style-6400054830231ec0c43d-5.js"></script><script type="text/javascript" src="parsermeta-11d7cfc58ff77bc150c9-5.js"></script><script type="text/javascript" src="app-8ab08307b358174a7a3e-5.js"></script></body>
-</html>
+/******/ ([]);

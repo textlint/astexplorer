@@ -82,8 +82,14 @@
 
 .cm-tab { display: inline-block; text-decoration: inherit; }
 
+.CodeMirror-rulers {
+  position: absolute;
+  left: 0; right: 0; top: -50px; bottom: -20px;
+  overflow: hidden;
+}
 .CodeMirror-ruler {
   border-left: 1px solid #ccc;
+  top: 0; bottom: 0;
   position: absolute;
 }
 
@@ -194,9 +200,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   display: inline-block;
   vertical-align: top;
   margin-bottom: -30px;
-  /* Hack to make IE7 behave */
-  *zoom:1;
-  *display:inline;
 }
 .CodeMirror-gutter-wrapper {
   position: absolute;
@@ -240,8 +243,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   position: relative;
   overflow: visible;
   -webkit-tap-highlight-color: transparent;
-  -webkit-font-variant-ligatures: none;
-  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: contextual;
+  font-variant-ligatures: contextual;
 }
 .CodeMirror-wrap pre {
   word-wrap: break-word;
@@ -284,7 +287,10 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #f22;}
   visibility: hidden;
 }
 
-.CodeMirror-cursor { position: absolute; }
+.CodeMirror-cursor {
+  position: absolute;
+  pointer-events: none;
+}
 .CodeMirror-measure pre { position: static; }
 
 div.CodeMirror-cursors {
@@ -311,9 +317,6 @@ div.CodeMirror-dragcursors {
   background: #ffa;
   background: rgba(255, 255, 0, .4);
 }
-
-/* IE7 hack to prevent it from returning funny offsetTops on the spans */
-.CodeMirror span { *vertical-align: text-bottom; }
 
 /* Used to force a border model for a node */
 .cm-force-border { padding-right: .1px; }
@@ -430,15 +433,15 @@ span.CodeMirror-selectedtext { background: none; }
 .highlight .vi { color: #268BD2 } /* Name.Variable.Instance */
 .highlight .il { color: #2AA198 } /* Literal.Number.Integer.Long */
 /*!
- *  Font Awesome 4.6.3 by @davegandy - http://fontawesome.io - @fontawesome
+ *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
  */
 /* FONT PATH
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url(25a32416abee198dd821b0b17a198a8f.eot);
-  src: url(25a32416abee198dd821b0b17a198a8f.eot?#iefix&v=4.6.3) format('embedded-opentype'), url(e6cf7c6ec7c2d6f670ae9d762604cb0b.woff2) format('woff2'), url(c8ddf1e5e5bf3682bc7bebf30f394148.woff) format('woff'), url(1dc35d25e61d819a9c357074014867ab.ttf) format('truetype'), url(d7c639084f684d66a1bc66855d193ed8.svg#fontawesomeregular) format('svg');
+  src: url(674f50d287a8c48dc19ba404d20fe713.eot);
+  src: url(674f50d287a8c48dc19ba404d20fe713.eot?#iefix&v=4.7.0) format('embedded-opentype'), url(af7ae505a9eed503f8b8e6982036873e.woff2) format('woff2'), url(fee66e712a8a08eef5805a46892932ad.woff) format('woff'), url(b06871f281fee6b241d60582ae9369b9.ttf) format('truetype'), url(912ec66d7572ff821749319396470bde.svg#fontawesomeregular) format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -2259,6 +2262,7 @@ span.CodeMirror-selectedtext { background: none; }
   content: "\F23E";
 }
 .fa-battery-4:before,
+.fa-battery:before,
 .fa-battery-full:before {
   content: "\F240";
 }
@@ -2605,6 +2609,143 @@ span.CodeMirror-selectedtext { background: none; }
 .fa-font-awesome:before {
   content: "\F2B4";
 }
+.fa-handshake-o:before {
+  content: "\F2B5";
+}
+.fa-envelope-open:before {
+  content: "\F2B6";
+}
+.fa-envelope-open-o:before {
+  content: "\F2B7";
+}
+.fa-linode:before {
+  content: "\F2B8";
+}
+.fa-address-book:before {
+  content: "\F2B9";
+}
+.fa-address-book-o:before {
+  content: "\F2BA";
+}
+.fa-vcard:before,
+.fa-address-card:before {
+  content: "\F2BB";
+}
+.fa-vcard-o:before,
+.fa-address-card-o:before {
+  content: "\F2BC";
+}
+.fa-user-circle:before {
+  content: "\F2BD";
+}
+.fa-user-circle-o:before {
+  content: "\F2BE";
+}
+.fa-user-o:before {
+  content: "\F2C0";
+}
+.fa-id-badge:before {
+  content: "\F2C1";
+}
+.fa-drivers-license:before,
+.fa-id-card:before {
+  content: "\F2C2";
+}
+.fa-drivers-license-o:before,
+.fa-id-card-o:before {
+  content: "\F2C3";
+}
+.fa-quora:before {
+  content: "\F2C4";
+}
+.fa-free-code-camp:before {
+  content: "\F2C5";
+}
+.fa-telegram:before {
+  content: "\F2C6";
+}
+.fa-thermometer-4:before,
+.fa-thermometer:before,
+.fa-thermometer-full:before {
+  content: "\F2C7";
+}
+.fa-thermometer-3:before,
+.fa-thermometer-three-quarters:before {
+  content: "\F2C8";
+}
+.fa-thermometer-2:before,
+.fa-thermometer-half:before {
+  content: "\F2C9";
+}
+.fa-thermometer-1:before,
+.fa-thermometer-quarter:before {
+  content: "\F2CA";
+}
+.fa-thermometer-0:before,
+.fa-thermometer-empty:before {
+  content: "\F2CB";
+}
+.fa-shower:before {
+  content: "\F2CC";
+}
+.fa-bathtub:before,
+.fa-s15:before,
+.fa-bath:before {
+  content: "\F2CD";
+}
+.fa-podcast:before {
+  content: "\F2CE";
+}
+.fa-window-maximize:before {
+  content: "\F2D0";
+}
+.fa-window-minimize:before {
+  content: "\F2D1";
+}
+.fa-window-restore:before {
+  content: "\F2D2";
+}
+.fa-times-rectangle:before,
+.fa-window-close:before {
+  content: "\F2D3";
+}
+.fa-times-rectangle-o:before,
+.fa-window-close-o:before {
+  content: "\F2D4";
+}
+.fa-bandcamp:before {
+  content: "\F2D5";
+}
+.fa-grav:before {
+  content: "\F2D6";
+}
+.fa-etsy:before {
+  content: "\F2D7";
+}
+.fa-imdb:before {
+  content: "\F2D8";
+}
+.fa-ravelry:before {
+  content: "\F2D9";
+}
+.fa-eercast:before {
+  content: "\F2DA";
+}
+.fa-microchip:before {
+  content: "\F2DB";
+}
+.fa-snowflake-o:before {
+  content: "\F2DC";
+}
+.fa-superpowers:before {
+  content: "\F2DD";
+}
+.fa-wpexplorer:before {
+  content: "\F2DE";
+}
+.fa-meetup:before {
+  content: "\F2E0";
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -2624,6 +2765,51 @@ span.CodeMirror-selectedtext { background: none; }
   overflow: visible;
   clip: auto;
 }
+/*
+  Icon Font: fontcustom
+*/
+
+@font-face {
+  font-family: "fontcustom";
+  src: url(9225ff764182c867ec93e8e7ff42938f.eot);
+  src: url(9225ff764182c867ec93e8e7ff42938f.eot?#iefix) format("embedded-opentype"),
+       url(data:application/font-woff;base64,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) format("woff"),
+       url(91e7e85306e2d0891824892acfb83413.ttf) format("truetype"),
+       url(d99a64768773e74b021474fd82eb14a0.svg#fontcustom) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "fontcustom";
+    src: url(d99a64768773e74b021474fd82eb14a0.svg#fontcustom) format("svg");
+  }
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.icon-GraphQL_Logo:before,
+.icon-handlebars:before,
+.icon-icu:before {
+  display: inline-block;
+  font-family: "fontcustom";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.icon-GraphQL_Logo:before { content: "\F100"; }
+.icon-handlebars:before { content: "\F101"; }
+.icon-icu:before { content: "\F102"; }
 html {
   font-size: 14px;
   box-sizing: border-box;
@@ -2695,14 +2881,34 @@ html {
   font-size: 32px;
 }
 
+.banner {
+  background-color: #b8dff7;
+  border-right: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+
+#root {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: calc(100vh - 26px);
+}
+
 #Toolbar {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
   font-family: monospace;
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: 35px;
-  line-height: 35px;
+  height: 32px;
+  line-height: 32px;
   border-bottom: 1px solid #ddd;
   color: #454545;
   padding-left: 10px;
@@ -2716,39 +2922,43 @@ html {
 }
 
 #Toolbar > *,
+#Toolbar > .menuButton > span,
 #Toolbar button {
-  box-sizing: border-box;
   background-color: transparent;
+  box-sizing: border-box;
+  color: inherit;
+  display: inline-block;
+  font-family: inherit;
+  font-size: 16px;
   margin: 0;
   min-width: 90px;
   outline: none;
-  cursor: pointer;
-  font-size: 16px;
-  display: inline-block;
-  color: inherit;
-  font-family: inherit;
+}
+
+#Toolbar > .menuButton > span {
+  cursor: default;
+  line-height: 29px;
+  padding: 2px 6px;
 }
 
 #Toolbar > * {
-  height: 35px;
-  border: 1px solid transparent;
-  border-left: 1px solid #ddd;
+  height: 32px;
   border-right: 1px solid #ddd;
   vertical-align: top;
 }
 
-#Toolbar > *  button {
+#Toolbar > * button {
   height: 100%;
   border: none;
+  cursor: pointer;
 }
 
 #Toolbar > h1 {
-  border: none;
   padding: 0;
+  padding-right: 10px;
   margin: 0;
   font-size: 18px;
   display: inline-block;
-  margin-right: 10px;
   vertical-align: top;
 }
 
@@ -2759,7 +2969,6 @@ html {
 
 #Toolbar .menuButton {
   position: relative;
-  height: auto;
 }
 
 #Toolbar .menuButton:hover > ul {
@@ -2768,19 +2977,26 @@ html {
 
 #Toolbar .menuButton ul {
   position: absolute;
-  top: 100%;
-  left: 0;
+  left: -1px;
   padding: 0;
   margin: 0;
   list-style: none;
   display: none;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+  border-top: none;
   min-width: 100%;
 }
 
 #Toolbar .menuButton ul li {
-  padding: 0 10px;
   white-space: nowrap;
+}
+
+#Toolbar .menuButton ul button {
+  line-height: 28px;
+  padding-bottom: 2px;
+  padding-top: 2px;
+  text-align: left;
+  width: 100%;
 }
 
 #Toolbar > *.disabled,
@@ -2796,19 +3012,15 @@ html {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-#Toolbar .menuButton li:hover,
 #Toolbar > a:hover,
-#Toolbar > button:hover {
+#Toolbar > .button:hover,
+#Toolbar ul button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
 
 #Toolbar > a:active,
-#Toolbar > button:active {
+#Toolbar button:active {
   background-color: rgba(0, 0, 0, 0.3);
-}
-
-#Toolbar .categoryButton > ul button {
-  text-align: left;
 }
 
 #info {
@@ -2820,7 +3032,7 @@ html {
 }
 
 #info.small {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.3em;
 }
 
@@ -2850,11 +3062,10 @@ html {
 }
 
 .splitpane-content {
-  position: absolute;
-  top: 36px;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  position: relative;
 }
 
 .splitpane {
@@ -2916,6 +3127,13 @@ html {
   color: #f5f5f5;
 }
 
+.output .toolbar .time {
+  float: right;
+  margin-right: 10px;
+  font-size: 10px;
+  line-height: 25px;
+}
+
 .output > .container {
   overflow: auto;
   position: absolute;
@@ -2923,6 +3141,10 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.output > .no-toolbar {
+  top: 0;
 }
 
 #JSONEditor .CodeMirror {
@@ -2975,22 +3197,12 @@ li.entry {
   color: red;
 }
 
-.entry.func > .value .s,
-.entry.func > .key .name,
-.entry.toggable > .key .name {
+.entry .invokeable {
   cursor: pointer;
 }
 
-.entry.func > .value:hover,
-.entry.func > .key .name:hover,
-.entry.toggable > .key .name:hover {
+.entry .invokeable:hover {
   text-decoration: underline;
-}
-
-.entry.func::before {
-  content: '\192';
-  left: -10px;
-  position: absolute;
 }
 
 .placeholder {
@@ -2998,12 +3210,14 @@ li.entry {
 }
 
 .compact,
-.tokenName {
+.tokenName,
+.entry.toggable > .key {
   cursor: pointer;
 }
 
 .compact:hover,
-.tokenName:hover {
+.tokenName:hover,
+.entry.toggable > .key:hover > .name {
   text-decoration: underline;
 }
 
@@ -3029,7 +3243,7 @@ li.entry {
 }
 
 /* Dialog */
-#SettingsDialog {
+.dialog {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -3049,7 +3263,7 @@ li.entry {
   z-index: 1000;
 }
 
-#SettingsDialog .inner {
+.dialog .inner {
   max-height: 90vh;
   background-color: white;
   box-shadow: 0px 0px 10px #555;
@@ -3064,18 +3278,25 @@ li.entry {
           flex-direction: column;
 }
 
-#SettingsDialog .header {
+.dialog .header {
   -ms-flex-negative: 0;
       flex-shrink: 0;
   padding: 10px 10px 0px 10px;
 }
 
-#SettingsDialog .body {
+.dialog .body {
   overflow: auto;
   padding: 10px;
 }
 
-#SettingsDialog .inner h3 {
+.dialog .footer {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding: 0 10px 10px 10px;
+  text-align: right;
+}
+
+.dialog .inner h3 {
   margin: 0 0 10px 0;
   padding: 0;
 }
@@ -3094,4 +3315,16 @@ li.entry {
 body .CodeMirror-hints,
 body .CodeMirror-Tern-tooltip {
   z-index: 1000;
+}
+
+.shareInfo dd {
+  margin: 0;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.shareInfo input {
+  font-size: 15px;
+  padding: 5px;
+  width: calc(100% - 10px);
 }
