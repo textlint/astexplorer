@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="description" content="An online AST explorer.">
     <%= htmlWebpackPlugin.files.webpackManifest %>
+    <!-- Hide Save -->
+    <style>
+      #Toolbar > div:nth-child(2) > ul > li:nth-child(2){
+        display:none!important;
+      }
+    </style>
   </head>
   <body>
     <div id="page">
