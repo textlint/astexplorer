@@ -23,6 +23,7 @@
     "exports-loader": "^0.6.2",
     "extract-text-webpack-plugin": "^2.0.0",
     "file-loader": "^0.10.0",
+    "gh-pages": "^0.12.0",
     "html-webpack-plugin": "^2.28.0",
     "http-server": "^0.9.0",
     "inline-manifest-webpack-plugin": "^3.0.1",
@@ -113,6 +114,7 @@
     "build": "rimraf ../out/* && cross-env NODE_ENV=production webpack",
     "watch": "webpack -dw",
     "lint": "eslint src/",
-    "fontcustom": "fontcustom compile ./fontcustom/input-svg/ --config=./fontcustom/config.yml"
+    "fontcustom": "fontcustom compile ./fontcustom/input-svg/ --config=./fontcustom/config.yml",
+    "deploy": "npm run build && gh-pages -d ../out"
   }
 }
