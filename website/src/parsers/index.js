@@ -1,10 +1,10 @@
 // const localRequire = require.context('./', true, /^\.\/(?!utils)[^/]+\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
-const localRequire = require.context('./', true, /^\.\/(md|txt)\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
+const localRequire = require.context('./', true, /^\.\/(md|html|txt)\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
 
 const files =
   localRequire.keys()
   .map(name => name.split('/').slice(1));
-
+console.log("files", files);
 const categoryByID = {};
 const parserByID = {};
 const transformerByID = {};
@@ -22,6 +22,7 @@ export const categories =
   .map(([catName]) => {
     let category = localRequire(`./${catName}/index.js`);
 
+    console.log(category)
     categoryByID[category.id] = category;
 
     category.codeExample = localRequire(`./${catName}/codeExample.txt`);

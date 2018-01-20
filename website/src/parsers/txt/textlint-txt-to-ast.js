@@ -13,9 +13,9 @@ export default {
     locationProps: new Set(['loc', 'range']),
 
     loadParser(callback) {
-        require(['txt-to-ast'], callback);
+        require(['@textlint/text-to-ast'], callback);
     },
-    
+
     parse(parser, text) {
         return parser.parse(text);
     },

@@ -13,7 +13,7 @@ export default {
     locationProps: new Set(['loc', 'range']),
 
     loadParser(callback) {
-        require(['markdown-to-ast'], callback);
+        require(['@textlint/markdown-to-ast'], callback);
     },
 
     parse(parser, text) {
