@@ -1,4 +1,4 @@
-webpackJsonp([0,2,4,11],{
+webpackJsonp([0,12],{
 
 /***/ "+32Y":
 /***/ (function(module, exports, __webpack_require__) {
@@ -174,7 +174,7 @@ function locate(e,t){var n=e.indexOf("**",t),o=e.indexOf("__",t);return o===-1?n
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-function parse(e){var r=remark.parse(e),t=new StructuredSource(e);return traverse(r).forEach(function(r){if(this.notLeaf){if(r.type){var a=SyntaxMap[r.type];a?r.type=a:debug("replacedType : "+a+" , node.type: "+r.type)}if(r.position){var n=r.position,o={start:{line:n.start.line,column:n.start.column-1},end:{line:n.end.line,column:n.end.column-1}},i=t.locationToRange(o);r.loc=o,r.range=i,r.raw=e.slice(i[0],i[1]),Object.defineProperty(r,"position",{enumerable:!1,configurable:!1,writable:!1,value:n})}}}),r}var traverse=__webpack_require__("2GwR"),_require=__webpack_require__("e3uW"),ASTNodeTypes=_require.ASTNodeTypes,StructuredSource=__webpack_require__("OeW3"),debug=__webpack_require__("Fy0/")("markdown-to-ast"),SyntaxMap=__webpack_require__("hPHx"),remarkAbstract=__webpack_require__("Al96"),remark=remarkAbstract();module.exports={parse:parse,Syntax:ASTNodeTypes};
+function parse(e){var r=remark.parse(e),t=new StructuredSource(e);return traverse(r).forEach(function(r){if(this.notLeaf){if(r.type){var a=SyntaxMap[r.type];a?r.type=a:debug("replacedType : "+a+" , node.type: "+r.type)}if(r.position){var n=r.position,o={start:{line:n.start.line,column:n.start.column-1},end:{line:n.end.line,column:n.end.column-1}},i=t.locationToRange(o);r.loc=o,r.range=i,r.raw=e.slice(i[0],i[1]),Object.defineProperty(r,"position",{enumerable:!1,configurable:!1,writable:!1,value:n})}}}),r}var traverse=__webpack_require__("2GwR"),_require=__webpack_require__("kHts"),ASTNodeTypes=_require.ASTNodeTypes,StructuredSource=__webpack_require__("OeW3"),debug=__webpack_require__("Fy0/")("markdown-to-ast"),SyntaxMap=__webpack_require__("hPHx"),remarkAbstract=__webpack_require__("Al96"),remark=remarkAbstract();module.exports={parse:parse,Syntax:ASTNodeTypes};
 
 /***/ }),
 
@@ -254,7 +254,7 @@ function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var unified=__webpack_require__("UH7g"),parse=__webpack_require__("hIvf"),stringify=__webpack_require__("UNyq");module.exports=unified().use(parse).use(stringify).freeze();
+var unified=__webpack_require__("xq7r"),parse=__webpack_require__("hIvf"),stringify=__webpack_require__("UNyq");module.exports=unified().use(parse).use(stringify).freeze();
 
 /***/ }),
 
@@ -3153,14 +3153,6 @@ function _classCallCheck(e,r){if(!(e instanceof r))throw new TypeError("Cannot c
 
 /***/ }),
 
-/***/ "UH7g":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-function pipelineParse(e,n){n.tree=e.parse(n.file)}function pipelineRun(e,n,r){function i(e,i,t){e?r(e):(n.tree=i,n.file=t,r())}e.run(n.tree,n.file,i)}function pipelineStringify(e,n){n.file.contents=e.stringify(n.tree,n.file)}function unified(){function e(){for(var e=unified(),n=c.length,r=-1;++r<n;)e.use.apply(null,c[r]);return e.data(extend(!0,{},g)),e}function n(){var n,r,i,t;if(v)return e;for(;++d<c.length;)n=c[d],r=n[0],i=n[1],t=null,i!==!1&&(i===!0&&(n[1]=void 0),t=r.apply(e,n.slice(1)),func(t)&&p.use(t));return v=!0,d=1/0,e}function r(n,r){return string(n)?2===arguments.length?(assertUnfrozen("data",v),g[n]=r,e):has(g,n)&&g[n]||null:n?(assertUnfrozen("data",v),g=n,e):g}function i(n){function r(e){s(e.plugins),e.settings&&(u=extend(u||{},e.settings))}function i(e){if(func(e))o(e);else{if("object"!=typeof e)throw new Error("Expected usable value, not `"+e+"`");"length"in e?o.apply(null,e):r(e)}}function s(e){var n,r;if(null===e||void 0===e);else{if(!("object"==typeof e&&"length"in e))throw new Error("Expected a list of plugins, not `"+e+"`");for(n=e.length,r=-1;++r<n;)i(e[r])}}function o(e,n){var r=t(e);r?(plain(r[1])&&plain(n)&&(n=extend(r[1],n)),r[1]=n):c.push(slice.call(arguments))}var u;if(assertUnfrozen("use",v),null===n||void 0===n);else if(func(n))o.apply(null,arguments);else{if("object"!=typeof n)throw new Error("Expected usable value, not `"+n+"`");"length"in n?s(n):r(n)}return u&&(g.settings=extend(g.settings||{},u)),e}function t(e){for(var n,r=c.length,i=-1;++i<r;)if(n=c[i],n[0]===e)return n}function s(r){var i,t=vfile(r);return n(),i=e.Parser,assertParser("parse",i),newable(i)?new i(String(t),t).parse():i(String(t),t)}function o(e,r,i){function t(n,t){function s(r,s,o){s=s||e,r?t(r):n?n(s):i(null,s,o)}p.run(e,vfile(r),s)}if(assertNode(e),n(),!i&&func(r)&&(i=r,r=null),!i)return new Promise(t);t(null,i)}function u(e,n){function r(e,n){t=!0,bail(e),i=n}var i,t=!1;return o(e,n,r),assertDone("runSync","run",t),i}function f(r,i){var t,s=vfile(i);return n(),t=e.Compiler,assertCompiler("stringify",t),assertNode(r),newable(t)?new t(r,s).compile():t(r,s)}function l(r,i){function t(n,t){function s(e){e?t(e):n?n(o):i(null,o)}var o=vfile(r);pipeline.run(e,{file:o},s)}if(n(),assertParser("process",e.Parser),assertCompiler("process",e.Compiler),!i)return new Promise(t);t(null,i)}function a(r){function i(e){s=!0,bail(e)}var t,s=!1;return n(),assertParser("processSync",e.Parser),assertCompiler("processSync",e.Compiler),t=vfile(r),l(t,i),assertDone("processSync","process",s),t}var c=[],p=trough(),g={},v=!1,d=-1;return e.data=r,e.freeze=n,e.attachers=c,e.use=i,e.parse=s,e.stringify=f,e.run=o,e.runSync=u,e.process=l,e.processSync=a,e}function newable(e){return func(e)&&keys(e.prototype)}function keys(e){var n;for(n in e)return!0;return!1}function assertParser(e,n){if(!func(n))throw new Error("Cannot `"+e+"` without `Parser`")}function assertCompiler(e,n){if(!func(n))throw new Error("Cannot `"+e+"` without `Compiler`")}function assertUnfrozen(e,n){if(n)throw new Error("Cannot invoke `"+e+"` on a frozen processor.\nCreate a new processor first, by invoking it: use `processor()` instead of `processor`.")}function assertNode(e){if(!e||!string(e.type))throw new Error("Expected node, got `"+e+"`")}function assertDone(e,n,r){if(!r)throw new Error("`"+e+"` finished async. Use `"+n+"` instead")}var has=__webpack_require__("XfW5"),extend=__webpack_require__("WJJ6"),bail=__webpack_require__("+TXw"),vfile=__webpack_require__("WsSB"),trough=__webpack_require__("/Rpd"),string=__webpack_require__("wGrg"),func=__webpack_require__("gf/M"),plain=__webpack_require__("wN2/");module.exports=unified().freeze();var slice=[].slice,pipeline=trough().use(pipelineParse).use(pipelineRun).use(pipelineStringify);
-
-/***/ }),
-
 /***/ "UNyq":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3213,15 +3205,6 @@ function footnoteDefinition(e){return"[^"+e.identifier.toLowerCase()+"]: "+this.
 /***/ (function(module, exports) {
 
 function shim(e){var s=[];for(var t in e)s.push(t);return s}exports=module.exports="function"==typeof Object.keys?Object.keys:shim,exports.shim=shim;
-
-/***/ }),
-
-/***/ "WsSB":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {function VFile(t){var e,r,s;if(t){if(string(t)||buffer(t))t={contents:t};else if("message"in t&&"messages"in t)return t}else t={};if(!(this instanceof VFile))return new VFile(t);for(this.data={},this.messages=[],this.history=[],this.cwd=process.cwd(),r=-1,s=order.length;++r<s;)e=order[r],has(t,e)&&(this[e]=t[e]);for(e in t)order.indexOf(e)===-1&&(this[e]=t[e])}function toString(t){var e=this.contents||"";return buffer(e)?e.toString(t):String(e)}function message(t,e,r){var s,n,i=this.path,a=stringify(e)||"1:1";return s={start:{line:null,column:null},end:{line:null,column:null}},e&&e.position&&(e=e.position),e&&(e.start?(s=e,e=e.start):s.start=e),n=new VMessage(t.message||t),n.name=(i?i+":":"")+a,n.file=i||"",n.reason=t.message||t,n.line=e?e.line:null,n.column=e?e.column:null,n.location=s,n.ruleId=r||null,n.source=null,n.fatal=!1,t.stack&&(n.stack=t.stack),this.messages.push(n),n}function fail(){var t=this.message.apply(this,arguments);throw t.fatal=!0,t}function VMessagePrototype(){}function VMessage(t){this.message=t}function assertPart(t,e){if(t.indexOf(path.sep)!==-1)throw new Error("`"+e+"` cannot be a path: did not expect `"+path.sep+"`")}function assertNonEmpty(t,e){if(!t)throw new Error("`"+e+"` cannot be empty")}function assertPath(t,e){if(!t)throw new Error("Setting `"+e+"` requires `path` to be set too")}var path=__webpack_require__("o/zv"),has=__webpack_require__("XfW5"),replace=__webpack_require__("ryvU"),stringify=__webpack_require__("LmLB"),buffer=__webpack_require__("Re3r"),string=__webpack_require__("wGrg");module.exports=VFile;var proto=VFile.prototype;proto.toString=toString,proto.message=message,proto.fail=fail,proto.warn=message;var order=["history","path","basename","stem","extname","dirname"];Object.defineProperty(proto,"path",{get:function(){return this.history[this.history.length-1]},set:function(t){assertNonEmpty(t,"path"),t!==this.path&&this.history.push(t)}}),Object.defineProperty(proto,"dirname",{get:function(){return string(this.path)?path.dirname(this.path):void 0},set:function(t){assertPath(this.path,"dirname"),this.path=path.join(t||"",this.basename)}}),Object.defineProperty(proto,"basename",{get:function(){return string(this.path)?path.basename(this.path):void 0},set:function(t){assertNonEmpty(t,"basename"),assertPart(t,"basename"),this.path=path.join(this.dirname||"",t)}}),Object.defineProperty(proto,"extname",{get:function(){return string(this.path)?path.extname(this.path):void 0},set:function(t){var e=t||"";if(assertPart(e,"extname"),assertPath(this.path,"extname"),e){if("."!==e.charAt(0))throw new Error("`extname` must start with `.`");if(e.indexOf(".",1)!==-1)throw new Error("`extname` cannot contain multiple dots")}this.path=replace(this.path,e)}}),Object.defineProperty(proto,"stem",{get:function(){return string(this.path)?path.basename(this.path,this.extname):void 0},set:function(t){assertNonEmpty(t,"stem"),assertPart(t,"stem"),this.path=path.join(this.dirname||"",t+(this.extname||""))}}),VMessagePrototype.prototype=Error.prototype,VMessage.prototype=new VMessagePrototype,proto=VMessage.prototype,proto.file=proto.name=proto.reason=proto.message=proto.stack="",proto.fatal=proto.column=proto.line=null;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("W2nU")))
 
 /***/ }),
 
@@ -3659,14 +3642,6 @@ function mergeable(n){var t,e;return"text"!==n.type||!n.position||(t=n.position.
 
 /***/ }),
 
-/***/ "e3uW":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports,"__esModule",{value:!0}),exports.ASTNodeTypes={Document:"Document",Paragraph:"Paragraph",BlockQuote:"BlockQuote",ListItem:"ListItem",List:"List",Header:"Header",CodeBlock:"CodeBlock",HtmlBlock:"HtmlBlock",ReferenceDef:"ReferenceDef",HorizontalRule:"HorizontalRule",Comment:"Comment",Str:"Str",Break:"Break",Emphasis:"Emphasis",Strong:"Strong",Html:"Html",Link:"Link",Image:"Image",Code:"Code"};
-
-/***/ }),
-
 /***/ "e7VM":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3796,7 +3771,7 @@ function parse(r){var e=unherit(Parser);e.prototype.options=xtend(e.prototype.op
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-var _require=__webpack_require__("e3uW"),ASTNodeTypes=_require.ASTNodeTypes,_exports={root:ASTNodeTypes.Document,paragraph:ASTNodeTypes.Paragraph,blockquote:ASTNodeTypes.BlockQuote,listItem:ASTNodeTypes.ListItem,list:ASTNodeTypes.List,Bullet:"Bullet",heading:ASTNodeTypes.Header,code:ASTNodeTypes.CodeBlock,HtmlBlock:ASTNodeTypes.HtmlBlock,ReferenceDef:ASTNodeTypes.ReferenceDef,thematicBreak:ASTNodeTypes.HorizontalRule,text:ASTNodeTypes.Str,break:ASTNodeTypes.Break,emphasis:ASTNodeTypes.Emphasis,strong:ASTNodeTypes.Strong,html:ASTNodeTypes.Html,link:ASTNodeTypes.Link,image:ASTNodeTypes.Image,inlineCode:ASTNodeTypes.Code,delete:ASTNodeTypes.Delete,yaml:"Yaml",table:"Table",tableRow:"TableRow",tableCell:"TableCell",linkReference:"LinkReference",imageReference:"imageReference",definition:"Definition"};module.exports=_exports;
+var _require=__webpack_require__("kHts"),ASTNodeTypes=_require.ASTNodeTypes,_exports={root:ASTNodeTypes.Document,paragraph:ASTNodeTypes.Paragraph,blockquote:ASTNodeTypes.BlockQuote,listItem:ASTNodeTypes.ListItem,list:ASTNodeTypes.List,Bullet:"Bullet",heading:ASTNodeTypes.Header,code:ASTNodeTypes.CodeBlock,HtmlBlock:ASTNodeTypes.HtmlBlock,ReferenceDef:ASTNodeTypes.ReferenceDef,thematicBreak:ASTNodeTypes.HorizontalRule,text:ASTNodeTypes.Str,break:ASTNodeTypes.Break,emphasis:ASTNodeTypes.Emphasis,strong:ASTNodeTypes.Strong,html:ASTNodeTypes.Html,link:ASTNodeTypes.Link,image:ASTNodeTypes.Image,inlineCode:ASTNodeTypes.Code,delete:ASTNodeTypes.Delete,yaml:"Yaml",table:"Table",tableRow:"TableRow",tableCell:"TableCell",linkReference:"LinkReference",imageReference:"imageReference",definition:"Definition"};module.exports=_exports;
 
 /***/ }),
 
@@ -3847,6 +3822,14 @@ function _classCallCheck(e,r){if(!(e instanceof r))throw new TypeError("Cannot c
 
 /***/ }),
 
+/***/ "kHts":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports,"__esModule",{value:!0}),exports.ASTNodeTypes={Document:"Document",Paragraph:"Paragraph",BlockQuote:"BlockQuote",ListItem:"ListItem",List:"List",Header:"Header",CodeBlock:"CodeBlock",HtmlBlock:"HtmlBlock",ReferenceDef:"ReferenceDef",HorizontalRule:"HorizontalRule",Comment:"Comment",Str:"Str",Break:"Break",Emphasis:"Emphasis",Strong:"Strong",Html:"Html",Link:"Link",Image:"Image",Code:"Code"};
+
+/***/ }),
+
 /***/ "kjjq":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3892,6 +3875,15 @@ function _classCallCheck(e,r){if(!(e instanceof r))throw new TypeError("Cannot c
 
 "use strict";
 function strikethrough(t){return"~~"+this.all(t).join("")+"~~"}module.exports=strikethrough;
+
+/***/ }),
+
+/***/ "mjOQ":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {function VFile(t){var e,r,s;if(t){if(string(t)||buffer(t))t={contents:t};else if("message"in t&&"messages"in t)return t}else t={};if(!(this instanceof VFile))return new VFile(t);for(this.data={},this.messages=[],this.history=[],this.cwd=process.cwd(),r=-1,s=order.length;++r<s;)e=order[r],has(t,e)&&(this[e]=t[e]);for(e in t)order.indexOf(e)===-1&&(this[e]=t[e])}function toString(t){var e=this.contents||"";return buffer(e)?e.toString(t):String(e)}function message(t,e,r){var s,n,i=this.path,a=stringify(e)||"1:1";return s={start:{line:null,column:null},end:{line:null,column:null}},e&&e.position&&(e=e.position),e&&(e.start?(s=e,e=e.start):s.start=e),n=new VMessage(t.message||t),n.name=(i?i+":":"")+a,n.file=i||"",n.reason=t.message||t,n.line=e?e.line:null,n.column=e?e.column:null,n.location=s,n.ruleId=r||null,n.source=null,n.fatal=!1,t.stack&&(n.stack=t.stack),this.messages.push(n),n}function fail(){var t=this.message.apply(this,arguments);throw t.fatal=!0,t}function VMessagePrototype(){}function VMessage(t){this.message=t}function assertPart(t,e){if(t.indexOf(path.sep)!==-1)throw new Error("`"+e+"` cannot be a path: did not expect `"+path.sep+"`")}function assertNonEmpty(t,e){if(!t)throw new Error("`"+e+"` cannot be empty")}function assertPath(t,e){if(!t)throw new Error("Setting `"+e+"` requires `path` to be set too")}var path=__webpack_require__("o/zv"),has=__webpack_require__("XfW5"),replace=__webpack_require__("ryvU"),stringify=__webpack_require__("LmLB"),buffer=__webpack_require__("Re3r"),string=__webpack_require__("wGrg");module.exports=VFile;var proto=VFile.prototype;proto.toString=toString,proto.message=message,proto.fail=fail,proto.warn=message;var order=["history","path","basename","stem","extname","dirname"];Object.defineProperty(proto,"path",{get:function(){return this.history[this.history.length-1]},set:function(t){assertNonEmpty(t,"path"),t!==this.path&&this.history.push(t)}}),Object.defineProperty(proto,"dirname",{get:function(){return string(this.path)?path.dirname(this.path):void 0},set:function(t){assertPath(this.path,"dirname"),this.path=path.join(t||"",this.basename)}}),Object.defineProperty(proto,"basename",{get:function(){return string(this.path)?path.basename(this.path):void 0},set:function(t){assertNonEmpty(t,"basename"),assertPart(t,"basename"),this.path=path.join(this.dirname||"",t)}}),Object.defineProperty(proto,"extname",{get:function(){return string(this.path)?path.extname(this.path):void 0},set:function(t){var e=t||"";if(assertPart(e,"extname"),assertPath(this.path,"extname"),e){if("."!==e.charAt(0))throw new Error("`extname` must start with `.`");if(e.indexOf(".",1)!==-1)throw new Error("`extname` cannot contain multiple dots")}this.path=replace(this.path,e)}}),Object.defineProperty(proto,"stem",{get:function(){return string(this.path)?path.basename(this.path,this.extname):void 0},set:function(t){assertNonEmpty(t,"stem"),assertPart(t,"stem"),this.path=path.join(this.dirname||"",t+(this.extname||""))}}),VMessagePrototype.prototype=Error.prototype,VMessage.prototype=new VMessagePrototype,proto=VMessage.prototype,proto.file=proto.name=proto.reason=proto.message=proto.stack="",proto.fatal=proto.column=proto.line=null;
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("W2nU")))
 
 /***/ }),
 
@@ -4274,6 +4266,14 @@ function locate(e,t){return e.indexOf("\\",t)}module.exports=locate;
 
 "use strict";
 function _classCallCheck(e,n){if(!(e instanceof n))throw new TypeError("Cannot call a class as a function")}Object.defineProperty(exports,"__esModule",{value:!0});var _typeof="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},_createClass=function(){function e(e,n){for(var o=0;o<n.length;o++){var r=n[o];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(e,r.key,r)}}return function(n,o,r){return o&&e(n.prototype,o),r&&e(n,r),n}}(),_throwLog=__webpack_require__("KEF1"),assert=__webpack_require__("N+Om"),ObjectAssign=__webpack_require__("BEQ0"),SourceLocation=function(){function e(n){_classCallCheck(this,e),this.source=n}return _createClass(e,[{key:"adjust",value:function(e){var n=e.node,o=e.ruleError,r=e.ruleId,t="["+r+"]"||"",i=o,u=void 0;if("number"==typeof i&&(u=i,(0,_throwLog.throwIfTesting)(t+' This is un-document way:\nreport(node, new RuleError("message", index);\n\nPlease use { index }: \n\nreport(node, new RuleError("message", {\n    index: paddingLineColumn\n});\n')),void 0===i.line&&void 0!==i.column&&(0,_throwLog.throwIfTesting)(t+' Have to use a sets with "line" and "column".\nSee FAQ: https://github.com/textlint/textlint/blob/master/docs/faq/line-column-or-index.md            \n\nreport(node, new RuleError("message", {\n    line: paddingLineNumber,\n    column: paddingLineColumn\n});\n\nOR use "index" property insteadof only "column".\n\nreport(node, new RuleError("message", {\n    index: paddingLineColumn\n});\n'),(void 0!==i.line||void 0!==i.column)&&void 0!==i.index)throw new Error(t+' Have to use {line, column} or index.\n=> use either one of the two\n\nreport(node, new RuleError("message", {\n    line: paddingLineNumber,\n    column: paddingLineColumn\n});\n\nOR use "index" property\n\nreport(node, new RuleError("message", {\n    index: paddingIndexValue\n});\n');return ObjectAssign({},this._adjustLoc(n,i,u),this._adjustFix(n,i))}},{key:"_adjustLoc",value:function(e,n,o){var r=e.range,t=e.loc.start.line,i=e.loc.start.column;if(void 0!==n.index||void 0!==o){var u=r[0],l=o||n.index,s=this.source.indexToPosition(u+l);return{column:s.column,line:s.line}}if(void 0!==n.line&&void 0!==n.column&&n.line>0){var a=t+n.line;return n.column>0?{line:a,column:n.column}:{line:a,column:i}}if(void 0!==n.line&&n.line>0){return{line:t+n.line,column:i}}if(void 0!==n.column&&n.column>0){return{line:t,column:i+n.column}}return{column:i,line:t}}},{key:"_adjustFix",value:function(e,n){var o=e.range;return void 0===n.fix?{}:(assert("object"===_typeof(n.fix),"fix should be FixCommand object"),n.fix.isAbsolute?{fix:{range:n.fix.range,text:n.fix.text}}:{fix:{range:[o[0]+n.fix.range[0],o[0]+n.fix.range[1]],text:n.fix.text}})}}]),e}();exports.default=SourceLocation,module.exports=exports.default;
+
+/***/ }),
+
+/***/ "xq7r":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+function pipelineParse(e,n){n.tree=e.parse(n.file)}function pipelineRun(e,n,r){function i(e,i,t){e?r(e):(n.tree=i,n.file=t,r())}e.run(n.tree,n.file,i)}function pipelineStringify(e,n){n.file.contents=e.stringify(n.tree,n.file)}function unified(){function e(){for(var e=unified(),n=c.length,r=-1;++r<n;)e.use.apply(null,c[r]);return e.data(extend(!0,{},g)),e}function n(){var n,r,i,t;if(v)return e;for(;++d<c.length;)n=c[d],r=n[0],i=n[1],t=null,i!==!1&&(i===!0&&(n[1]=void 0),t=r.apply(e,n.slice(1)),func(t)&&p.use(t));return v=!0,d=1/0,e}function r(n,r){return string(n)?2===arguments.length?(assertUnfrozen("data",v),g[n]=r,e):has(g,n)&&g[n]||null:n?(assertUnfrozen("data",v),g=n,e):g}function i(n){function r(e){s(e.plugins),e.settings&&(u=extend(u||{},e.settings))}function i(e){if(func(e))o(e);else{if("object"!=typeof e)throw new Error("Expected usable value, not `"+e+"`");"length"in e?o.apply(null,e):r(e)}}function s(e){var n,r;if(null===e||void 0===e);else{if(!("object"==typeof e&&"length"in e))throw new Error("Expected a list of plugins, not `"+e+"`");for(n=e.length,r=-1;++r<n;)i(e[r])}}function o(e,n){var r=t(e);r?(plain(r[1])&&plain(n)&&(n=extend(r[1],n)),r[1]=n):c.push(slice.call(arguments))}var u;if(assertUnfrozen("use",v),null===n||void 0===n);else if(func(n))o.apply(null,arguments);else{if("object"!=typeof n)throw new Error("Expected usable value, not `"+n+"`");"length"in n?s(n):r(n)}return u&&(g.settings=extend(g.settings||{},u)),e}function t(e){for(var n,r=c.length,i=-1;++i<r;)if(n=c[i],n[0]===e)return n}function s(r){var i,t=vfile(r);return n(),i=e.Parser,assertParser("parse",i),newable(i)?new i(String(t),t).parse():i(String(t),t)}function o(e,r,i){function t(n,t){function s(r,s,o){s=s||e,r?t(r):n?n(s):i(null,s,o)}p.run(e,vfile(r),s)}if(assertNode(e),n(),!i&&func(r)&&(i=r,r=null),!i)return new Promise(t);t(null,i)}function u(e,n){function r(e,n){t=!0,bail(e),i=n}var i,t=!1;return o(e,n,r),assertDone("runSync","run",t),i}function f(r,i){var t,s=vfile(i);return n(),t=e.Compiler,assertCompiler("stringify",t),assertNode(r),newable(t)?new t(r,s).compile():t(r,s)}function l(r,i){function t(n,t){function s(e){e?t(e):n?n(o):i(null,o)}var o=vfile(r);pipeline.run(e,{file:o},s)}if(n(),assertParser("process",e.Parser),assertCompiler("process",e.Compiler),!i)return new Promise(t);t(null,i)}function a(r){function i(e){s=!0,bail(e)}var t,s=!1;return n(),assertParser("processSync",e.Parser),assertCompiler("processSync",e.Compiler),t=vfile(r),l(t,i),assertDone("processSync","process",s),t}var c=[],p=trough(),g={},v=!1,d=-1;return e.data=r,e.freeze=n,e.attachers=c,e.use=i,e.parse=s,e.stringify=f,e.run=o,e.runSync=u,e.process=l,e.processSync=a,e}function newable(e){return func(e)&&keys(e.prototype)}function keys(e){var n;for(n in e)return!0;return!1}function assertParser(e,n){if(!func(n))throw new Error("Cannot `"+e+"` without `Parser`")}function assertCompiler(e,n){if(!func(n))throw new Error("Cannot `"+e+"` without `Compiler`")}function assertUnfrozen(e,n){if(n)throw new Error("Cannot invoke `"+e+"` on a frozen processor.\nCreate a new processor first, by invoking it: use `processor()` instead of `processor`.")}function assertNode(e){if(!e||!string(e.type))throw new Error("Expected node, got `"+e+"`")}function assertDone(e,n,r){if(!r)throw new Error("`"+e+"` finished async. Use `"+n+"` instead")}var has=__webpack_require__("XfW5"),extend=__webpack_require__("WJJ6"),bail=__webpack_require__("+TXw"),vfile=__webpack_require__("mjOQ"),trough=__webpack_require__("/Rpd"),string=__webpack_require__("wGrg"),func=__webpack_require__("gf/M"),plain=__webpack_require__("wN2/");module.exports=unified().freeze();var slice=[].slice,pipeline=trough().use(pipelineParse).use(pipelineRun).use(pipelineStringify);
 
 /***/ }),
 

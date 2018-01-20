@@ -1,4 +1,4 @@
-webpackJsonp([6,11],{
+webpackJsonp([7,12],{
 
 /***/ "1inQ":
 /***/ (function(module, exports, __webpack_require__) {
@@ -67,41 +67,7 @@ function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.d
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(exports,"__esModule",{value:!0});var _extends2=__webpack_require__("Dd8w"),_extends3=_interopRequireDefault(_extends2),_defaultParserInterface=__webpack_require__("zoXw"),_defaultParserInterface2=_interopRequireDefault(_defaultParserInterface),_package=__webpack_require__("d8LE"),_package2=_interopRequireDefault(_package),ID="textlint:txt-to-ast";exports.default=(0,_extends3.default)({},_defaultParserInterface2.default,{id:ID,displayName:"textlint",version:_package2.default.version,homepage:_package2.default.homepage,locationProps:new Set(["loc","range"]),loadParser:function(e){__webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("XKZc")]; (e.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)},parse:function(e,t){return e.parse(t)},opensByDefault:function(e,t){return"rules"===t},_ignoredProperties:new Set(["location"])});
-
-/***/ }),
-
-/***/ "8mrk":
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"./md/codeExample.txt": "34zE",
-	"./md/index.js": "XSa0",
-	"./md/textlint-markdown-to-ast.js": "GGDY",
-	"./md/transformers/textlint-markdown-to-ast/codeExample.txt": "DP/L",
-	"./md/transformers/textlint-markdown-to-ast/index.js": "D1QK",
-	"./txt/codeExample.txt": "BBwd",
-	"./txt/index.js": "cECI",
-	"./txt/textlint-txt-to-ast.js": "8KOb",
-	"./txt/transformers/textlint-txt-to-ast/codeExample.txt": "xOWQ",
-	"./txt/transformers/textlint-txt-to-ast/index.js": "2Sph"
-};
-function webpackContext(req) {
-	return __webpack_require__(webpackContextResolve(req));
-};
-function webpackContextResolve(req) {
-	var id = map[req];
-	if(!(id + 1)) // check for number
-		throw new Error("Cannot find module '" + req + "'.");
-	return id;
-};
-webpackContext.keys = function webpackContextKeys() {
-	return Object.keys(map);
-};
-webpackContext.resolve = webpackContextResolve;
-module.exports = webpackContext;
-webpackContext.id = "8mrk";
-
+function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(exports,"__esModule",{value:!0});var _extends2=__webpack_require__("Dd8w"),_extends3=_interopRequireDefault(_extends2),_defaultParserInterface=__webpack_require__("zoXw"),_defaultParserInterface2=_interopRequireDefault(_defaultParserInterface),_package=__webpack_require__("d8LE"),_package2=_interopRequireDefault(_package),ID="textlint:txt-to-ast";exports.default=(0,_extends3.default)({},_defaultParserInterface2.default,{id:ID,displayName:"textlint",version:_package2.default.version,homepage:_package2.default.homepage,locationProps:new Set(["loc","range"]),loadParser:function(e){__webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("t7cN")]; (e.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)},parse:function(e,t){return e.parse(t)},opensByDefault:function(e,t){return"rules"===t},_ignoredProperties:new Set(["location"])});
 
 /***/ }),
 
@@ -181,7 +147,7 @@ function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(exports,"__esModule",{value:!0});var _extends2=__webpack_require__("Dd8w"),_extends3=_interopRequireDefault(_extends2),_defaultParserInterface=__webpack_require__("zoXw"),_defaultParserInterface2=_interopRequireDefault(_defaultParserInterface),_package=__webpack_require__("LAP1"),_package2=_interopRequireDefault(_package),ID="textlint:markdown-to-ast";exports.default=(0,_extends3.default)({},_defaultParserInterface2.default,{id:ID,displayName:"textlint",version:_package2.default.version,homepage:_package2.default.homepage,locationProps:new Set(["loc","range"]),loadParser:function(e){__webpack_require__.e/* require */(2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("3c5b")]; (e.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)},parse:function(e,t){return e.parse(t)},opensByDefault:function(e,t){return"rules"===t},_ignoredProperties:new Set(["location"])});
+function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(exports,"__esModule",{value:!0});var _extends2=__webpack_require__("Dd8w"),_extends3=_interopRequireDefault(_extends2),_defaultParserInterface=__webpack_require__("zoXw"),_defaultParserInterface2=_interopRequireDefault(_defaultParserInterface),_package=__webpack_require__("LAP1"),_package2=_interopRequireDefault(_package),ID="textlint:markdown-to-ast";exports.default=(0,_extends3.default)({},_defaultParserInterface2.default,{id:ID,displayName:"textlint",version:_package2.default.version,homepage:_package2.default.homepage,locationProps:new Set(["loc","range"]),loadParser:function(e){__webpack_require__.e/* require */(2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("JbwY")]; (e.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)},parse:function(e,t){return e.parse(t)},opensByDefault:function(e,t){return"rules"===t},_ignoredProperties:new Set(["location"])});
 
 /***/ }),
 
@@ -281,11 +247,26 @@ function debounce(e){var t=arguments.length>1&&void 0!==arguments[1]?arguments[1
 
 /***/ }),
 
+/***/ "QVqy":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}Object.defineProperty(exports,"__esModule",{value:!0});var _extends2=__webpack_require__("Dd8w"),_extends3=_interopRequireDefault(_extends2),_defaultParserInterface=__webpack_require__("zoXw"),_defaultParserInterface2=_interopRequireDefault(_defaultParserInterface),_package=__webpack_require__("npXs"),_package2=_interopRequireDefault(_package),ID="textlint:html";exports.default=(0,_extends3.default)({},_defaultParserInterface2.default,{id:ID,displayName:"textlint",version:_package2.default.version,homepage:_package2.default.homepage,locationProps:new Set(["loc","range"]),loadParser:function(e){__webpack_require__.e/* require */(3).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("Wl9/")]; (e.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)},parse:function(e,t){return console.log("parser",e),e.parse(t)},opensByDefault:function(e,t){return"rules"===t},_ignoredProperties:new Set(["location"])});
+
+/***/ }),
+
+/***/ "Qf/b":
+/***/ (function(module, exports) {
+
+module.exports = "module.exports = function (context) {\n    const {Syntax, RuleError, report, getSource} = context;\n    return {\n        [Syntax.Str](node){\n            report(node, new Error(\"error\"));\n        }\n    };\n}\n"
+
+/***/ }),
+
 /***/ "Re4o":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function getDefaultCategory(){return categoryByID.markdown}function getDefaultParser(){return(arguments.length>0&&void 0!==arguments[0]?arguments[0]:getDefaultCategory()).parsers[0]}function getCategoryByID(e){return categoryByID[e]}function getParserByID(e){return parserByID[e]}function getTransformerByID(e){return transformerByID[e]}Object.defineProperty(exports,"__esModule",{value:!0}),exports.categories=void 0;var _slicedToArray2=__webpack_require__("d7EF"),_slicedToArray3=_interopRequireDefault(_slicedToArray2);exports.getDefaultCategory=getDefaultCategory,exports.getDefaultParser=getDefaultParser,exports.getCategoryByID=getCategoryByID,exports.getParserByID=getParserByID,exports.getTransformerByID=getTransformerByID;var localRequire=__webpack_require__("8mrk"),files=localRequire.keys().map(function(e){return e.split("/").slice(1)}),categoryByID={},parserByID={},transformerByID={},restrictedParserNames=new Set(["index.js","codeExample.txt","transformers","utils"]),categories=exports.categories=files.filter(function(e){return"index.js"===e[1]}).map(function(e){var r=(0,_slicedToArray3.default)(e,1),t=r[0],a=localRequire("./"+t+"/index.js");categoryByID[a.id]=a,a.codeExample=localRequire("./"+t+"/codeExample.txt");var o=files.filter(function(e){return(0,_slicedToArray3.default)(e,1)[0]===t}).map(function(e){return e.slice(1)});return a.parsers=o.filter(function(e){var r=(0,_slicedToArray3.default)(e,1),t=r[0];return!restrictedParserNames.has(t)}).map(function(e){var r=(0,_slicedToArray3.default)(e,1),o=r[0],s=localRequire("./"+t+"/"+o);return s=s.__esModule?s.default:s,parserByID[s.id]=s,s.category=a,s}),a.transformers=o.filter(function(e){var r=(0,_slicedToArray3.default)(e,3),t=r[0],a=r[2];return"transformers"===t&&"index.js"===a}).map(function(e){var r=(0,_slicedToArray3.default)(e,2),a=r[1],o="./"+t+"/transformers/"+a,s=localRequire(o+"/index.js");return s=s.__esModule?s.default:s,transformerByID[s.id]=s,s.defaultTransform=localRequire(o+"/codeExample.txt"),s}),a});
+function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function getDefaultCategory(){return categoryByID.markdown}function getDefaultParser(){return(arguments.length>0&&void 0!==arguments[0]?arguments[0]:getDefaultCategory()).parsers[0]}function getCategoryByID(e){return categoryByID[e]}function getParserByID(e){return parserByID[e]}function getTransformerByID(e){return transformerByID[e]}Object.defineProperty(exports,"__esModule",{value:!0}),exports.categories=void 0;var _slicedToArray2=__webpack_require__("d7EF"),_slicedToArray3=_interopRequireDefault(_slicedToArray2);exports.getDefaultCategory=getDefaultCategory,exports.getDefaultParser=getDefaultParser,exports.getCategoryByID=getCategoryByID,exports.getParserByID=getParserByID,exports.getTransformerByID=getTransformerByID;var localRequire=__webpack_require__("xD7e"),files=localRequire.keys().map(function(e){return e.split("/").slice(1)});console.log("files",files);var categoryByID={},parserByID={},transformerByID={},restrictedParserNames=new Set(["index.js","codeExample.txt","transformers","utils"]),categories=exports.categories=files.filter(function(e){return"index.js"===e[1]}).map(function(e){var r=(0,_slicedToArray3.default)(e,1),t=r[0],a=localRequire("./"+t+"/index.js");console.log(a),categoryByID[a.id]=a,a.codeExample=localRequire("./"+t+"/codeExample.txt");var o=files.filter(function(e){return(0,_slicedToArray3.default)(e,1)[0]===t}).map(function(e){return e.slice(1)});return a.parsers=o.filter(function(e){var r=(0,_slicedToArray3.default)(e,1),t=r[0];return!restrictedParserNames.has(t)}).map(function(e){var r=(0,_slicedToArray3.default)(e,1),o=r[0],s=localRequire("./"+t+"/"+o);return s=s.__esModule?s.default:s,parserByID[s.id]=s,s.category=a,s}),a.transformers=o.filter(function(e){var r=(0,_slicedToArray3.default)(e,3),t=r[0],a=r[2];return"transformers"===t&&"index.js"===a}).map(function(e){var r=(0,_slicedToArray3.default)(e,2),a=r[1],o="./"+t+"/transformers/"+a,s=localRequire(o+"/index.js");return s=s.__esModule?s.default:s,transformerByID[s.id]=s,s.defaultTransform=localRequire(o+"/codeExample.txt"),s}),a});
 
 /***/ }),
 
@@ -336,7 +317,7 @@ function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function loadTern(){__webpack_require__.e/* require */(5).then(function() { /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("jQeI"),__webpack_require__("/qQ3"),__webpack_require__("v8W6")]; (function(e,r,t){global.acorn=t,__webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("YUdF"),__webpack_require__("Z6ZF"),__webpack_require__("c9Kp"),__webpack_require__("zaYM"),__webpack_require__("rUux")]; (function(e,r,t,o,i){global.tern=e,e.registerPlugin("transformer",function(e){e.on("afterLoad",function(e){var r=e.scope.props.transformer;if(r){var o=r.getFunctionType(),i=t.cx();o.propagate(new t.IsCallee(t.cx().topScope,[i.definitions.jscodeshift.file,i.definitions.jscodeshift.apiObject],null,t.ANull))}})}),server=new _codemirror2.default.TernServer({defs:[o,i],plugins:{transformer:{strong:!0}}})}.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}).catch(__webpack_require__.oe)}.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));
+function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function loadTern(){__webpack_require__.e/* require */(6).then(function() { /* WEBPACK VAR INJECTION */(function(global) {var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("jQeI"),__webpack_require__("/qQ3"),__webpack_require__("v8W6")]; (function(e,r,t){global.acorn=t,__webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("YUdF"),__webpack_require__("Z6ZF"),__webpack_require__("c9Kp"),__webpack_require__("zaYM"),__webpack_require__("rUux")]; (function(e,r,t,o,i){global.tern=e,e.registerPlugin("transformer",function(e){e.on("afterLoad",function(e){var r=e.scope.props.transformer;if(r){var o=r.getFunctionType(),i=t.cx();o.propagate(new t.IsCallee(t.cx().topScope,[i.definitions.jscodeshift.file,i.definitions.jscodeshift.apiObject],null,t.ANull))}})}),server=new _codemirror2.default.TernServer({defs:[o,i],plugins:{transformer:{strong:!0}}})}.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}).catch(__webpack_require__.oe)}.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__("DuR2")))}).catch(__webpack_require__.oe)}Object.defineProperty(exports,"__esModule",{value:!0});var _classCallCheck2=__webpack_require__("Zrlr"),_classCallCheck3=_interopRequireDefault(_classCallCheck2),_createClass2=__webpack_require__("wxAW"),_createClass3=_interopRequireDefault(_createClass2),_possibleConstructorReturn2=__webpack_require__("zwoO"),_possibleConstructorReturn3=_interopRequireDefault(_possibleConstructorReturn2),_get2=__webpack_require__("yEsh"),_get3=_interopRequireDefault(_get2),_inherits2=__webpack_require__("Pf15"),_inherits3=_interopRequireDefault(_inherits2),_codemirror=__webpack_require__("8U58"),_codemirror2=_interopRequireDefault(_codemirror),_react=__webpack_require__("U7vG"),_react2=_interopRequireDefault(_react),_Editor2=__webpack_require__("sMBK"),_Editor3=_interopRequireDefault(_Editor2);__webpack_require__("PsxY"),__webpack_require__("CXGR");var server=void 0,JSCodeshiftEditor=function(e){function r(e){(0,_classCallCheck3.default)(this,r);var t=(0,_possibleConstructorReturn3.default)(this,(r.__proto__||Object.getPrototypeOf(r)).call(this,e));return loadTern(),t}return(0,_inherits3.default)(r,e),(0,_createClass3.default)(r,[{key:"componentDidMount",value:function(){(0,_get3.default)(r.prototype.__proto__||Object.getPrototypeOf(r.prototype),"componentDidMount",this).call(this),this.codeMirror.setOption("extraKeys",{"Ctrl-Space":function(e){return server&&server.complete(e)},"Ctrl-I":function(e){return server&&server.showType(e)},"Ctrl-O":function(e){return server&&server.showDocs(e)}}),this._bindCMHandler("cursorActivity",function(e){server&&server.updateArgHints(e)})}}]),r}(_Editor3.default);exports.default=JSCodeshiftEditor,JSCodeshiftEditor.propTypes={value:_react2.default.PropTypes.string,highlight:_react2.default.PropTypes.bool,lineNumbers:_react2.default.PropTypes.bool,readOnly:_react2.default.PropTypes.bool,onContentChange:_react2.default.PropTypes.func,onActivity:_react2.default.PropTypes.func,posFromIndex:_react2.default.PropTypes.func,error:_react2.default.PropTypes.object,mode:_react2.default.PropTypes.string},JSCodeshiftEditor.defaultProps=Object.assign({},_Editor3.default.defaultProps,{highlight:!1});
 
 /***/ }),
@@ -449,11 +430,19 @@ function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function
 
 /***/ }),
 
+/***/ "jlpK":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports,"__esModule",{value:!0}),exports.mimeTypes=exports.displayName=exports.id=void 0,__webpack_require__("zA3a");var id=exports.id="html",displayName=exports.displayName="HTML",mimeTypes=exports.mimeTypes=["text/html"];
+
+/***/ }),
+
 /***/ "kMaA":
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function importEscodegen(){return new Promise(function(e){return __webpack_require__.e/* require */(3).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("lIiO")]; (e.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)})}Object.defineProperty(exports,"__esModule",{value:!0});var _extends2=__webpack_require__("Dd8w"),_extends3=_interopRequireDefault(_extends2),_objectWithoutProperties2=__webpack_require__("+6Bu"),_objectWithoutProperties3=_interopRequireDefault(_objectWithoutProperties2),_slicedToArray2=__webpack_require__("d7EF"),_slicedToArray3=_interopRequireDefault(_slicedToArray2),_classCallCheck2=__webpack_require__("Zrlr"),_classCallCheck3=_interopRequireDefault(_classCallCheck2),_createClass2=__webpack_require__("wxAW"),_createClass3=_interopRequireDefault(_createClass2),_possibleConstructorReturn2=__webpack_require__("zwoO"),_possibleConstructorReturn3=_interopRequireDefault(_possibleConstructorReturn2),_inherits2=__webpack_require__("Pf15"),_inherits3=_interopRequireDefault(_inherits2),_react=__webpack_require__("U7vG"),_react2=_interopRequireDefault(_react),_parsers=__webpack_require__("Re4o"),acceptedFileTypes=new Map([["application/json","JSON"],["text/plain","TEXT"]]);_parsers.categories.forEach(function(e){var t=e.id;e.mimeTypes.forEach(function(e){acceptedFileTypes.set(e,t)})});var PasteDropTarget=function(e){function t(e){(0,_classCallCheck3.default)(this,t);var r=(0,_possibleConstructorReturn3.default)(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return r.state={dragging:!1},r}return(0,_inherits3.default)(t,e),(0,_createClass3.default)(t,[{key:"_onASTError",value:function(e,t,r){throw this.props.onError(e,t,"Cannot process pasted AST: "+r.message),r}},{key:"componentDidMount",value:function(){var e=this;this._listeners=[];var t=this.refs.container;this._bindListener(document,"paste",function(t){if(t.clipboardData){var r=t.clipboardData;!r.types.indexOf||!r.types.indexOf("text/plain")>-1||(t.stopPropagation(),t.preventDefault(),e._jsonToCode(r.getData("text/plain")).then(function(r){return e.props.onText("paste",t,r)},function(r){"TEXTAREA"!==t.target.nodeName&&e._onASTError("paste",t,r)}))}},!0);var r=void 0;this._bindListener(t,"dragenter",function(t){clearTimeout(r),t.preventDefault(),e.setState({dragging:!0})},!0),this._bindListener(t,"dragover",function(e){clearTimeout(r),e.preventDefault(),e.dataTransfer.dropEffect="copy"},!0),this._bindListener(t,"drop",function(t){e.setState({dragging:!1});var r=t.dataTransfer.files[0],n=acceptedFileTypes.get(r.type);if(n&&e.props.onText){t.preventDefault(),t.stopPropagation();var i=new FileReader;i.onload=function(t){var r=t.target.result;"JSON"!==n&&"TEXT"!==n||(r=e._jsonToCode(r).then(function(e){return n="javascript",e},function(i){if("JSON"!==n)return n=void 0,r;e._onASTError("drop",t,i)})),Promise.resolve(r).then(function(r){e.props.onText("drop",t,r,n)})},i.readAsText(r)}},!0),this._bindListener(t,"dragleave",function(){clearTimeout(r),r=setTimeout(function(){return e.setState({dragging:!1})},50)},!0)}},{key:"componentWillUnmount",value:function(){for(var e=0;e<this._listeners.length;e+=4){var t=(0,_slicedToArray3.default)(this._listeners[e],4),r=t[0],n=t[1],i=t[2],o=t[3];r.removeEventListener(n,i,o)}this._listeners=null}},{key:"_jsonToCode",value:function(e){var t=void 0;try{t=JSON.parse(e)}catch(t){return Promise.resolve(e)}return importEscodegen().then(function(e){return e.generate(t,{format:{indent:{style:"  "}}})})}},{key:"_bindListener",value:function(e,t,r,n){var i=this;t.split(/\s+/).forEach(function(t){e.addEventListener(t,r,n),i._listeners.push(e,r,n)})}},{key:"render",value:function(){var e=this.props,t=e.children,r=(e.onText,(0,_objectWithoutProperties3.default)(e,["children","onText"])),n=this.state.dragging?_react2.default.createElement("div",{className:"dropIndicator"},_react2.default.createElement("div",null,"Drop the code or (JSON-encoded) AST file here")):null;return _react2.default.createElement("div",(0,_extends3.default)({ref:"container"},r),n,t)}}]),t}(_react2.default.Component);exports.default=PasteDropTarget,PasteDropTarget.propTypes={onText:_react2.default.PropTypes.func,onError:_react2.default.PropTypes.func,children:_react2.default.PropTypes.node};
+function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function importEscodegen(){return new Promise(function(e){return __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("lIiO")]; (e.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe)})}Object.defineProperty(exports,"__esModule",{value:!0});var _extends2=__webpack_require__("Dd8w"),_extends3=_interopRequireDefault(_extends2),_objectWithoutProperties2=__webpack_require__("+6Bu"),_objectWithoutProperties3=_interopRequireDefault(_objectWithoutProperties2),_slicedToArray2=__webpack_require__("d7EF"),_slicedToArray3=_interopRequireDefault(_slicedToArray2),_classCallCheck2=__webpack_require__("Zrlr"),_classCallCheck3=_interopRequireDefault(_classCallCheck2),_createClass2=__webpack_require__("wxAW"),_createClass3=_interopRequireDefault(_createClass2),_possibleConstructorReturn2=__webpack_require__("zwoO"),_possibleConstructorReturn3=_interopRequireDefault(_possibleConstructorReturn2),_inherits2=__webpack_require__("Pf15"),_inherits3=_interopRequireDefault(_inherits2),_react=__webpack_require__("U7vG"),_react2=_interopRequireDefault(_react),_parsers=__webpack_require__("Re4o"),acceptedFileTypes=new Map([["application/json","JSON"],["text/plain","TEXT"]]);_parsers.categories.forEach(function(e){var t=e.id;e.mimeTypes.forEach(function(e){acceptedFileTypes.set(e,t)})});var PasteDropTarget=function(e){function t(e){(0,_classCallCheck3.default)(this,t);var r=(0,_possibleConstructorReturn3.default)(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e));return r.state={dragging:!1},r}return(0,_inherits3.default)(t,e),(0,_createClass3.default)(t,[{key:"_onASTError",value:function(e,t,r){throw this.props.onError(e,t,"Cannot process pasted AST: "+r.message),r}},{key:"componentDidMount",value:function(){var e=this;this._listeners=[];var t=this.refs.container;this._bindListener(document,"paste",function(t){if(t.clipboardData){var r=t.clipboardData;!r.types.indexOf||!r.types.indexOf("text/plain")>-1||(t.stopPropagation(),t.preventDefault(),e._jsonToCode(r.getData("text/plain")).then(function(r){return e.props.onText("paste",t,r)},function(r){"TEXTAREA"!==t.target.nodeName&&e._onASTError("paste",t,r)}))}},!0);var r=void 0;this._bindListener(t,"dragenter",function(t){clearTimeout(r),t.preventDefault(),e.setState({dragging:!0})},!0),this._bindListener(t,"dragover",function(e){clearTimeout(r),e.preventDefault(),e.dataTransfer.dropEffect="copy"},!0),this._bindListener(t,"drop",function(t){e.setState({dragging:!1});var r=t.dataTransfer.files[0],n=acceptedFileTypes.get(r.type);if(n&&e.props.onText){t.preventDefault(),t.stopPropagation();var i=new FileReader;i.onload=function(t){var r=t.target.result;"JSON"!==n&&"TEXT"!==n||(r=e._jsonToCode(r).then(function(e){return n="javascript",e},function(i){if("JSON"!==n)return n=void 0,r;e._onASTError("drop",t,i)})),Promise.resolve(r).then(function(r){e.props.onText("drop",t,r,n)})},i.readAsText(r)}},!0),this._bindListener(t,"dragleave",function(){clearTimeout(r),r=setTimeout(function(){return e.setState({dragging:!1})},50)},!0)}},{key:"componentWillUnmount",value:function(){for(var e=0;e<this._listeners.length;e+=4){var t=(0,_slicedToArray3.default)(this._listeners[e],4),r=t[0],n=t[1],i=t[2],o=t[3];r.removeEventListener(n,i,o)}this._listeners=null}},{key:"_jsonToCode",value:function(e){var t=void 0;try{t=JSON.parse(e)}catch(t){return Promise.resolve(e)}return importEscodegen().then(function(e){return e.generate(t,{format:{indent:{style:"  "}}})})}},{key:"_bindListener",value:function(e,t,r,n){var i=this;t.split(/\s+/).forEach(function(t){e.addEventListener(t,r,n),i._listeners.push(e,r,n)})}},{key:"render",value:function(){var e=this.props,t=e.children,r=(e.onText,(0,_objectWithoutProperties3.default)(e,["children","onText"])),n=this.state.dragging?_react2.default.createElement("div",{className:"dropIndicator"},_react2.default.createElement("div",null,"Drop the code or (JSON-encoded) AST file here")):null;return _react2.default.createElement("div",(0,_extends3.default)({ref:"container"},r),n,t)}}]),t}(_react2.default.Component);exports.default=PasteDropTarget,PasteDropTarget.propTypes={onText:_react2.default.PropTypes.func,onError:_react2.default.PropTypes.func,children:_react2.default.PropTypes.node};
 
 /***/ }),
 
@@ -486,6 +475,13 @@ function _interopRequireWildcard(e){if(e&&e.__esModule)return e;var r={};if(null
 
 "use strict";
 function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function parse(e,t,r){return e._promise||(e._promise=new Promise(e.loadParser)),e._promise.then(function(s){return e.parse(s,t,r)})}function formatTime(e){return e?e<1e3?e+"ms":(e/1e3).toFixed(2)+"s":null}Object.defineProperty(exports,"__esModule",{value:!0});var _classCallCheck2=__webpack_require__("Zrlr"),_classCallCheck3=_interopRequireDefault(_classCallCheck2),_createClass2=__webpack_require__("wxAW"),_createClass3=_interopRequireDefault(_createClass2),_possibleConstructorReturn2=__webpack_require__("zwoO"),_possibleConstructorReturn3=_interopRequireDefault(_possibleConstructorReturn2),_inherits2=__webpack_require__("Pf15"),_inherits3=_interopRequireDefault(_inherits2),_react=__webpack_require__("U7vG"),_react2=_interopRequireDefault(_react),_classnames=__webpack_require__("HW6M"),_classnames2=_interopRequireDefault(_classnames),_visualization=__webpack_require__("H4bS"),_visualization2=_interopRequireDefault(_visualization),_getFocusPath=__webpack_require__("aiYT"),_getFocusPath2=_interopRequireDefault(_getFocusPath),_pubsubJs=__webpack_require__("x9pK"),_pubsubJs2=_interopRequireDefault(_pubsubJs),PropTypes=_react2.default.PropTypes,ASTOutput=function(e){function t(e,r){(0,_classCallCheck3.default)(this,t);var s=(0,_possibleConstructorReturn3.default)(this,(t.__proto__||Object.getPrototypeOf(t)).call(this,e,r));return s._changeOutput=s._changeOutput.bind(s),s.state={output:0,parseError:null,ast:null,parseTime:null},s}return(0,_inherits3.default)(t,e),(0,_createClass3.default)(t,[{key:"componentDidMount",value:function(){var e=this;this._parse(this.props.parser,this.props.code,this.props.parserSettings),this._subscription=_pubsubJs2.default.subscribe("FORCE_PARSE",function(){e._parse(e.props.parser,e.props.code)})}},{key:"componentWillUnmount",value:function(){_pubsubJs2.default.unsubscribe("FORCE_PARSE")}},{key:"componentWillReceiveProps",value:function(e){e.parser!==this.props.parser||e.code!==this.props.code||e.parserSettings!==this.props.parserSettings?this._parse(e.parser,e.code,e.parserSettings):e.cursor!==this.props.cursor&&this.setState({focusPath:null!=e.cursor?(0,_getFocusPath2.default)(this.state.ast,e.cursor,e.parser):[]})}},{key:"shouldComponentUpdate",value:function(e,t){return t.ast!==this.state.ast||t.parseError!==this.state.parseError||t.focusPath!==this.state.focusPath||t.output!==this.state.output}},{key:"_parse",value:function(e,t,r){var s=this;if(e&&null!=t){var a=Date.now();parse(e,t,r).then(function(r){e!==s.props.parser&&t!==s.props.code||(s.setState({parseTime:Date.now()-a,ast:r,focusPath:null!=s.props.cursor?(0,_getFocusPath2.default)(r,s.props.cursor,e):[],parseError:null}),s.props.onParseError(null))},function(e){console.error(e),s.setState({parseError:e,parseTime:null}),s.props.onParseError(e)})}}},{key:"_changeOutput",value:function(e){this.setState({output:e.target.value})}},{key:"render",value:function(){var e=this,t=void 0;this.state.parseError?t=_react2.default.createElement("div",{style:{padding:20}},this.state.parseError.message):this.state.ast&&(t=_react2.default.createElement(_visualization2.default[this.state.output],{ast:this.state.ast,focusPath:this.state.focusPath,parser:this.props.parser}));var r=_visualization2.default.map(function(t,r){return _react2.default.createElement("button",{key:r,value:r,onClick:e._changeOutput,className:(0,_classnames2.default)({active:e.state.output==r})},t.name)});return _react2.default.createElement("div",{className:"output highlight"},_react2.default.createElement("div",{className:"toolbar"},r,_react2.default.createElement("span",{className:"time"},formatTime(this.state.parseTime))),t)}}]),t}(_react2.default.Component);exports.default=ASTOutput,ASTOutput.propTypes={code:_react2.default.PropTypes.string,parser:PropTypes.object.isRequired,parserSettings:PropTypes.object,cursor:PropTypes.any,onParseError:_react2.default.PropTypes.func.isRequired};
+
+/***/ }),
+
+/***/ "nwpp":
+/***/ (function(module, exports) {
+
+module.exports = "<h1>Title</h1>\n\n<div>\n    <p>This is a paragraph.</p>\n</div>\n"
 
 /***/ }),
 
@@ -537,6 +533,45 @@ function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function
 
 /***/ }),
 
+/***/ "xD7e":
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./html/codeExample.txt": "nwpp",
+	"./html/index.js": "jlpK",
+	"./html/textlint-markdown-to-ast.js": "QVqy",
+	"./html/transformers/textlint-markdown-to-ast/codeExample.txt": "Qf/b",
+	"./html/transformers/textlint-markdown-to-ast/index.js": "zO5Q",
+	"./md/codeExample.txt": "34zE",
+	"./md/index.js": "XSa0",
+	"./md/textlint-markdown-to-ast.js": "GGDY",
+	"./md/transformers/textlint-markdown-to-ast/codeExample.txt": "DP/L",
+	"./md/transformers/textlint-markdown-to-ast/index.js": "D1QK",
+	"./txt/codeExample.txt": "BBwd",
+	"./txt/index.js": "cECI",
+	"./txt/textlint-txt-to-ast.js": "8KOb",
+	"./txt/transformers/textlint-txt-to-ast/codeExample.txt": "xOWQ",
+	"./txt/transformers/textlint-txt-to-ast/index.js": "2Sph"
+};
+function webpackContext(req) {
+	return __webpack_require__(webpackContextResolve(req));
+};
+function webpackContextResolve(req) {
+	var id = map[req];
+	if(!(id + 1)) // check for number
+		throw new Error("Cannot find module '" + req + "'.");
+	return id;
+};
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "xD7e";
+
+
+/***/ }),
+
 /***/ "xOWQ":
 /***/ (function(module, exports) {
 
@@ -550,6 +585,14 @@ module.exports = "module.exports = function (context) {\n    const {Syntax, Rule
 "use strict";
 /* WEBPACK VAR INJECTION */(function(global) {function _interopRequireWildcard(e){if(e&&e.__esModule)return e;var r={};if(null!=e)for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&(r[o]=e[o]);return r.default=e,r}function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function mapStateToProps(e){var r=selectors.getParser(e);return{forking:selectors.isForking(e),saving:selectors.isSaving(e),canSave:selectors.canSave(e),canFork:selectors.canFork(e),category:r.category,parser:r,transformer:selectors.getTransformer(e),showTransformer:selectors.showTransformer(e),snippet:selectors.getRevision(e)}}function mapDispatchToProps(e){return{onParserChange:function(r){e((0,_actions.setParser)(r)),(0,_logger.logEvent)("parser","select",r.id)},onCategoryChange:function(r){e((0,_actions.selectCategory)(r)),(0,_logger.logEvent)("category","select",r.id)},onParserSettingsButtonClick:function(){e((0,_actions.openSettingsDialog)()),(0,_logger.logEvent)("parser","open_settings")},onShareButtonClick:function(){e((0,_actions.openShareDialog)()),(0,_logger.logEvent)("ui","open_share")},onTransformChange:function(r){e(r?(0,_actions.selectTransformer)(r):(0,_actions.hideTransformer)()),r&&(0,_logger.logEvent)("tool","select",r.id)},onSave:function(){return e((0,_actions.save)(!1))},onFork:function(){return e((0,_actions.save)(!0))},onNew:function(){global.location.hash?global.location.hash="":e((0,_actions.reset)())}}}Object.defineProperty(exports,"__esModule",{value:!0});var _reactRedux=__webpack_require__("RH2O"),_actions=__webpack_require__("mUbh"),_Toolbar=__webpack_require__("7O3v"),_Toolbar2=_interopRequireDefault(_Toolbar),_selectors=__webpack_require__("cAC5"),selectors=_interopRequireWildcard(_selectors),_logger=__webpack_require__("fz81");exports.default=(0,_reactRedux.connect)(mapStateToProps,mapDispatchToProps)(_Toolbar2.default);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__("DuR2")))
+
+/***/ }),
+
+/***/ "zO5Q":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+function _interopRequireDefault(e){return e&&e.__esModule?e:{default:e}}function formatResults(e,t){var n=function(e){return formatResult(e,t)};return 0===e.messages.length?"Lint rule not fired.":e.messages.map(n).join("").trim()}function formatResult(e,t){var n="-".repeat(e.column-1)+"^";return console.log(t.split("\n")[e.line-1]),"\n| "+e.message+" (at "+e.line+":"+e.column+")\n   "+(t.split("\n")[e.line-1]||"")+"\n| "+n+"\n"}Object.defineProperty(exports,"__esModule",{value:!0});var _compileModule=__webpack_require__("K5Vt"),_compileModule2=_interopRequireDefault(_compileModule),_package=__webpack_require__("fhjZ"),_package2=_interopRequireDefault(_package),ID="textlint-plugin-html";exports.default={id:ID,displayName:ID,version:_package2.default.version,homepage:_package2.default.homepage,defaultParserID:"textlint-plugin-html",loadTransformer:function(e){__webpack_require__.e/* require */(0/* duplicate */).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__("/UkT")]; (function(t){e({TextLintCore:t})}.apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}).catch(__webpack_require__.oe)},transform:function(e,t,n){var l=e.TextLintCore,r=new l,u=(0,_compileModule2.default)(t);return r.setupRules({astExplorerRule:u}),r.lintText(n,".html").then(function(e){return formatResults(e,n)})}};
 
 /***/ }),
 
