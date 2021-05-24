@@ -1,12 +1,14 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import CategoryButton from './buttons/CategoryButton';
 import ParserButton from './buttons/ParserButton';
 import SnippetButton from './buttons/SnippetButton';
 import TransformButton from './buttons/TransformButton';
+import KeyMapButton from './buttons/KeyMapButton';
 
 export default function Toolbar(props) {
   let {parser, transformer, showTransformer} = props;
-  let parserInfo = parser.id;
+  let parserInfo = parser.displayName;
   let transformerInfo = '';
   if (parser) {
     if (parser.version) {
@@ -14,7 +16,7 @@ export default function Toolbar(props) {
     }
     if (parser.homepage) {
       parserInfo =
-        <a href={parser.homepage} target="_blank">{parserInfo}</a>;
+        <a href={parser.homepage} target="_blank" rel="noopener noreferrer">{parserInfo}</a>;
     }
   }
   if (showTransformer) {
@@ -24,7 +26,7 @@ export default function Toolbar(props) {
     }
     if (transformer.homepage) {
       transformerInfo =
-        <a href={transformer.homepage} target="_blank">{transformerInfo}</a>;
+        <a href={transformer.homepage} target="_blank" rel="noopener noreferrer">{transformerInfo}</a>;
     }
     transformerInfo = <span>Transformer: {transformerInfo}</span>;
   }
@@ -36,11 +38,12 @@ export default function Toolbar(props) {
       <CategoryButton {...props} />
       <ParserButton {...props} />
       <TransformButton {...props} />
+      <KeyMapButton {...props} />
       <a
         style={{minWidth: 0}}
-        target="_blank"
+        target="_blank" rel="noopener noreferrer"
         title="Help"
-        href="https://github.com/fkling/esprima_ast_explorer#features">
+        href="https://github.com/fkling/astexplorer/blob/master/README.md">
         <i className="fa fa-lg fa-question fa-fw" />
       </a>
       <div id="info" className={transformerInfo ? 'small' : ''}>
@@ -52,17 +55,18 @@ export default function Toolbar(props) {
 }
 
 Toolbar.propTypes = {
-  saving: React.PropTypes.bool,
-  forking: React.PropTypes.bool,
-  onSave: React.PropTypes.func,
-  onFork: React.PropTypes.func,
-  onParserChange: React.PropTypes.func,
-  onParserSettingsButtonClick: React.PropTypes.func,
-  onShareButtonClick: React.PropTypes.func,
-  onTransformChange: React.PropTypes.func,
-  parser: React.PropTypes.object,
-  transformer: React.PropTypes.object,
-  showTransformer: React.PropTypes.bool,
-  canSave: React.PropTypes.bool,
-  canFork: React.PropTypes.bool,
+  saving: PropTypes.bool,
+  forking: PropTypes.bool,
+  onSave: PropTypes.func,
+  onFork: PropTypes.func,
+  onParserChange: PropTypes.func,
+  onParserSettingsButtonClick: PropTypes.func,
+  onShareButtonClick: PropTypes.func,
+  onTransformChange: PropTypes.func,
+  onKeyMapChange: PropTypes.func,
+  parser: PropTypes.object,
+  transformer: PropTypes.object,
+  showTransformer: PropTypes.bool,
+  canSave: PropTypes.bool,
+  canFork: PropTypes.bool,
 };

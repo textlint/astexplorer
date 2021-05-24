@@ -8,12 +8,15 @@ export const SELECT_CATEGORY = 'CHANGE_CATEGORY';
 export const SELECT_TRANSFORMER = 'SELECT_TRANSFORMER';
 export const HIDE_TRANSFORMER = 'HIDE_TRANSFORMER';
 export const SET_TRANSFORM = 'SET_TRANSFORM';
+export const SET_TRANSFORM_RESULT = 'SET_TRANSFORM_RESULT';
 export const SET_PARSER = 'SET_PARSER';
 export const SET_PARSER_SETTINGS = 'SET_PARSER_SETTINGS';
-export const SET_PARSE_ERROR = 'SET_PARSE_ERROR';
+export const SET_PARSE_RESULT = 'SET_PARSE_RESULT';
 export const SET_SNIPPET = 'SET_SNIPPET';
 export const OPEN_SETTINGS_DIALOG = 'OPEN_SETTINGS_DIALOG';
 export const CLOSE_SETTINGS_DIALOG = 'CLOSE_SETTINGS_DIALOG';
+export const EXPAND_SETTINGS_DRAWER = 'EXPAND_SETTINGS_DRAWER';
+export const COLLAPSE_SETTINGS_DRAWER = 'COLLAPSE_SETTINGS_DRAWER';
 export const OPEN_SHARE_DIALOG = 'OPEN_SHARE_DIALOG';
 export const CLOSE_SHARE_DIALOG = 'CLOSE_SHARE_DIALOG';
 export const SET_CODE = 'SET_CODE';
@@ -23,6 +26,8 @@ export const SAVE = 'SAVE';
 export const START_SAVE = 'START_SAVE';
 export const END_SAVE = 'END_SAVE';
 export const RESET = 'RESET';
+export const TOGGLE_FORMATTING = 'TOGGLE_FORMATTING';
+export const SET_KEY_MAP = 'SET_KEY_MAP';
 
 export function setParser(parser) {
   return {type: SET_PARSER, parser};
@@ -46,10 +51,6 @@ export function endSave(fork) {
 
 export function setSnippet(revision) {
   return {type: SET_SNIPPET, revision};
-}
-
-export function setParseError(error) {
-  return {type: SET_PARSE_ERROR, error};
 }
 
 export function selectCategory(category) {
@@ -78,6 +79,14 @@ export function openSettingsDialog() {
 
 export function closeSettingsDialog() {
   return {type: CLOSE_SETTINGS_DIALOG};
+}
+
+export function expandSettingsDrawer() {
+  return {type: EXPAND_SETTINGS_DRAWER};
+}
+
+export function collapseSettingsDrawer() {
+  return {type: COLLAPSE_SETTINGS_DRAWER};
 }
 
 export function openShareDialog() {
@@ -122,4 +131,12 @@ export function dropText(text, categoryId) {
 
 export function reset() {
   return {type: RESET};
+}
+
+export function toggleFormatting() {
+  return {type: TOGGLE_FORMATTING};
+}
+
+export function setKeyMap(keyMap) {
+  return {type: SET_KEY_MAP, keyMap}
 }

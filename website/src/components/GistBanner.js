@@ -3,6 +3,7 @@
  * save new revisions of existing Parse snippets. We let the visitor know.
  */
 
+import PropTypes from 'prop-types';
 import React from 'react';
 import {connect} from 'react-redux';
 import {getRevision} from '../store/selectors';
@@ -27,7 +28,7 @@ class GistBanner extends React.Component {
     this._hide = this._hide.bind(this);
   }
 
-  componentWillReceiveProps(newProps) {
+  UNSAFE_componentWillReceiveProps(newProps) {
     const newRevision = newProps.revision;
     const oldRevision = this.props.revision;
     if (newRevision &&
@@ -59,6 +60,10 @@ class GistBanner extends React.Component {
       </div>
     );
   }
+}
+
+GistBanner.propTypes = {
+  revision: PropTypes.object,
 }
 
 export default connect(state => ({revision: getRevision(state)}))(GistBanner);

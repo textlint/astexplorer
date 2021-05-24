@@ -20,16 +20,12 @@ export default {
     return jsonToAst(code);
   },
 
-  getNodeName(node) {
-    return node.type;
-  },
-
   nodeToRange({loc}) {
     if (loc) {
       return [
         loc.start.offset,
-        loc.end.offset
+        loc.end.offset,
       ];
     }
-  }
+  },
 }

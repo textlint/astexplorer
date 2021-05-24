@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import { categories } from '../parsers';
 
@@ -28,14 +29,14 @@ export default class PasteDropTarget extends React.Component {
     this.props.onError(
       type,
       event,
-      `Cannot process pasted AST: ${ex.message}`
+      `Cannot process pasted AST: ${ex.message}`,
     );
     throw ex;
   }
 
   componentDidMount() {
     this._listeners = [];
-    let target = this.refs.container;
+    let target = this.container;
 
     // Handle pastes
     this._bindListener(document, 'paste', event => {
@@ -56,7 +57,7 @@ export default class PasteDropTarget extends React.Component {
           if (event.target.nodeName !== 'TEXTAREA') {
             this._onASTError('paste', event, ex);
           }
-        }
+        },
       );
     }, true);
 
@@ -100,7 +101,7 @@ export default class PasteDropTarget extends React.Component {
                 categoryId = undefined;
                 return text;
               }
-            }
+            },
           );
         }
         Promise.resolve(text).then(text => {
@@ -117,9 +118,8 @@ export default class PasteDropTarget extends React.Component {
   }
 
   componentWillUnmount() {
-    for (let i = 0; i < this._listeners.length; i += 4) {
-      let [elem, event, listener, capture] = this._listeners[i];
-      elem.removeEventListener(event, listener, capture);
+    for (const removeListener of this._listeners) {
+      removeListener();
     }
     this._listeners = null;
   }
@@ -138,10 +138,12 @@ export default class PasteDropTarget extends React.Component {
   }
 
   _bindListener(elem, event, listener, capture) {
-    event.split(/\s+/).forEach(e => {
+    for (const e of event.split(/\s+/)) {
       elem.addEventListener(e, listener, capture);
-      this._listeners.push(elem, listener, capture);
-    });
+      this._listeners.push(
+        () => elem.removeEventListener(e, listener, capture),
+      );
+    }
   }
 
   render() {
@@ -154,7 +156,7 @@ export default class PasteDropTarget extends React.Component {
 
     return (
       <div
-        ref="container"
+        ref={c => this.container = c}
         {...props}>
         {dropindicator}
         {children}
@@ -164,7 +166,7 @@ export default class PasteDropTarget extends React.Component {
 }
 
 PasteDropTarget.propTypes = {
-  onText: React.PropTypes.func,
-  onError: React.PropTypes.func,
-  children: React.PropTypes.node,
+  onText: PropTypes.func,
+  onError: PropTypes.func,
+  children: PropTypes.node,
 };

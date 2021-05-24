@@ -1,27 +1,16 @@
-import React from 'react';
 import defaultParserInterface from '../utils/defaultParserInterface';
 import pkg from 'typescript/package.json';
-import SettingsRenderer from '../utils/SettingsRenderer';
 
 const ID = 'typescript';
 const FILENAME = 'astExplorer.ts';
 
-const defaultOptions = {
-  experimentalDecorators: true,
-  experimentalAsyncFunctions: true,
-  jsx: true,
-};
-
-const parserSettingsConfiguration = {
-  fields: [
-    'experimentalDecorators',
-    'experimentalAsyncFunctions',
-    'jsx',
-  ],
-};
-
-let ts;
 let getComments;
+const syntaxKind = {};
+
+// Typescript uses `process` somehow
+if (!global.process) {
+  global.process = {}
+}
 
 export default {
   ...defaultParserInterface,
@@ -31,14 +20,23 @@ export default {
   version: pkg.version,
   homepage: pkg.homepage,
   locationProps: new Set(['pos', 'end']),
+  typeProps: new Set(['kind']),
 
   loadParser(callback) {
-    require(['typescript'], _ts => callback(ts = _ts));
+    require(['typescript'], _ts => {
+        // workarounds issue described at https://github.com/Microsoft/TypeScript/issues/18062
+        for (const name of Object.keys(_ts.SyntaxKind).filter(x => isNaN(parseInt(x)))) {
+            const value = _ts.SyntaxKind[name];
+            if (!syntaxKind[value]) {
+                syntaxKind[value] = name;
+            }
+        }
+
+        callback(_ts);
+    });
   },
 
   parse(ts, code, options) {
-    options = {...defaultOptions, ...options};
-
     const compilerHost/*: ts.CompilerHost*/ = {
       fileExists: () => true,
       getCanonicalFileName: filename => filename,
@@ -77,7 +75,7 @@ export default {
 
           if (Array.isArray(comments)) {
             comments.forEach((comment) => {
-              comment.type = ts.SyntaxKind[comment.kind];
+              comment.type = syntaxKind[comment.kind];
               comment.text = sourceFile.text.substring(comment.pos, comment.end);
             });
 
@@ -92,36 +90,38 @@ export default {
 
   getNodeName(node) {
     if (node.kind) {
-      return ts.SyntaxKind[node.kind]
+      return syntaxKind[node.kind];
     }
   },
 
   _ignoredProperties: new Set([
-    'constructor',
+    'file',
     'parent',
   ]),
 
   *forEachProperty(node) {
-    for (let prop in node) {
-      if (this._ignoredProperties.has(prop) || prop.charAt(0) === '_') {
-        continue;
+    if (node && typeof node === 'object') {
+      for (let prop in node) {
+        if (this._ignoredProperties.has(prop) || prop.charAt(0) === '_') {
+          continue;
+        }
+        yield {
+          value: node[prop],
+          key: prop,
+        };
       }
-      yield {
-        value: node[prop],
-        key: prop,
-      };
-    }
-    if (node.parent) {
-      yield {
-        value: getComments(node),
-        key: 'leadingComments',
-        computed: true,
-      };
-      yield {
-        value: getComments(node, true),
-        key: 'trailingCommments',
-        computed: true,
-      };
+      if (node.parent) {
+        yield {
+          value: getComments(node),
+          key: 'leadingComments',
+          computed: true,
+        };
+        yield {
+          value: getComments(node, true),
+          key: 'trailingComments',
+          computed: true,
+        };
+      }
     }
   },
 
@@ -135,7 +135,7 @@ export default {
     }
   },
 
-  opensByDefault(node, key) {
+  opensByDefault(_, key) {
     return (
       key === 'statements' ||
       key === 'declarationList' ||
@@ -143,13 +143,11 @@ export default {
     );
   },
 
-  renderSettings(parserSettings, onChange) {
-    return (
-      <SettingsRenderer
-        settingsConfiguration={parserSettingsConfiguration}
-        parserSettings={{...defaultOptions, ...parserSettings}}
-        onChange={onChange}
-      />
-    );
+  getDefaultOptions() {
+    return {
+      experimentalDecorators: true,
+      jsx: true,
+    };
   },
+
 };

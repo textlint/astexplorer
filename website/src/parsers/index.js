@@ -25,7 +25,7 @@ export const categories =
     console.log(category)
     categoryByID[category.id] = category;
 
-    category.codeExample = localRequire(`./${catName}/codeExample.txt`);
+    category.codeExample = interopRequire(localRequire(`./${catName}/codeExample.txt`))
 
     let catFiles =
       files
@@ -36,8 +36,7 @@ export const categories =
       catFiles
       .filter(([parserName]) => !restrictedParserNames.has(parserName))
       .map(([parserName]) => {
-        let parser = localRequire(`./${catName}/${parserName}`);
-        parser = parser.__esModule ? parser.default : parser;
+        let parser = interopRequire(localRequire(`./${catName}/${parserName}`));
         parserByID[parser.id] = parser;
         parser.category = category;
         return parser;
@@ -47,11 +46,10 @@ export const categories =
       catFiles
       .filter(([dirName, , fileName]) => dirName === 'transformers' && fileName === 'index.js')
       .map(([, transformerName]) => {
-        let transformerDir = `./${catName}/transformers/${transformerName}`;
-        let transformer = localRequire(`${transformerDir}/index.js`);
-        transformer = transformer.__esModule ? transformer.default : transformer;
+        const transformerDir = `./${catName}/transformers/${transformerName}`;
+        const transformer = interopRequire(localRequire(`${transformerDir}/index.js`));
         transformerByID[transformer.id] = transformer;
-        transformer.defaultTransform = localRequire(`${transformerDir}/codeExample.txt`);
+        transformer.defaultTransform = interopRequire(localRequire(`${transformerDir}/codeExample.txt`));
         return transformer;
       });
 
@@ -64,7 +62,7 @@ export function getDefaultCategory() {
 }
 
 export function getDefaultParser(category = getDefaultCategory()) {
-  return category.parsers[0];
+  return category.parsers.filter(p => p.showInMenu)[0];
 }
 
 export function getCategoryByID(id) {

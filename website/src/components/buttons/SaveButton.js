@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import React from 'react';
-import cx from 'classnames';
+import cx from '../../utils/classnames.js';
 
 export default function SaveButton({canSave, saving, forking, onSave}) {
   return (
@@ -23,8 +24,8 @@ export default function SaveButton({canSave, saving, forking, onSave}) {
 }
 
 SaveButton.propTypes = {
-  canSave: React.PropTypes.bool,
-  saving: React.PropTypes.bool,
-  forking: React.PropTypes.bool,
-  onSave: React.PropTypes.func,
+  canSave: PropTypes.bool,
+  saving: PropTypes.bool,
+  forking: PropTypes.bool,
+  onSave: PropTypes.func,
 };

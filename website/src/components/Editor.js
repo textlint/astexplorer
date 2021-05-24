@@ -1,6 +1,20 @@
 import CodeMirror from 'codemirror';
-import PubSub from 'pubsub-js';
+import 'codemirror/keymap/vim';
+import 'codemirror/keymap/emacs';
+import 'codemirror/keymap/sublime';
+import PropTypes from 'prop-types';
+import {subscribe, clear} from '../utils/pubsub.js';
 import React from 'react';
+
+const defaultPrettierOptions = {
+  printWidth: 80,
+  tabWidth: 2,
+  singleQuote: false,
+  trailingComma: 'none',
+  bracketSpacing: true,
+  jsxBracketSameLine: false,
+  parser: 'babel',
+};
 
 export default class Editor extends React.Component {
 
@@ -11,16 +25,21 @@ export default class Editor extends React.Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.state.value) {
       this.setState(
         {value: nextProps.value},
-        () => this.codeMirror.setValue(nextProps.value)
+        () => this.codeMirror.setValue(nextProps.value),
       );
     }
     if (nextProps.mode !== this.props.mode) {
       this.codeMirror.setOption('mode', nextProps.mode);
     }
+
+    if (nextProps.keyMap !== this.props.keyMap) {
+      this.codeMirror.setOption('keyMap', nextProps.keyMap);
+    }
+
     this._setError(nextProps.error);
   }
 
@@ -64,14 +83,30 @@ export default class Editor extends React.Component {
     this._CMHandlers = [];
     this._subscriptions = [];
     this.codeMirror = CodeMirror( // eslint-disable-line new-cap
-      this.refs.container,
+      this.container,
       {
+        keyMap: this.props.keyMap,
         value: this.state.value,
         mode: this.props.mode,
         lineNumbers: this.props.lineNumbers,
         readOnly: this.props.readOnly,
-      }
+      },
     );
+
+    this._bindCMHandler('blur', instance => {
+      if (!this.props.enableFormatting) return;
+
+      require(['prettier/standalone', 'prettier/parser-babel'], (prettier, babel) => {
+        const currValue = instance.doc.getValue();
+        const options = Object.assign({},
+          defaultPrettierOptions,
+          {
+            printWidth: instance.display.maxLineLength,
+            plugins: [babel],
+          });
+        instance.doc.setValue(prettier.format(currValue, options));
+      });
+    });
 
     this._bindCMHandler('changes', () => {
       clearTimeout(this._updateTimer);
@@ -83,18 +118,18 @@ export default class Editor extends React.Component {
     });
 
     this._subscriptions.push(
-      PubSub.subscribe('PANEL_RESIZE', () => {
+      subscribe('PANEL_RESIZE', () => {
         if (this.codeMirror) {
           this.codeMirror.refresh();
         }
-      })
+      }),
     );
 
     if (this.props.highlight) {
       this._markerRange = null;
       this._mark = null;
       this._subscriptions.push(
-        PubSub.subscribe('HIGHLIGHT', (_, {range}) => {
+        subscribe('HIGHLIGHT', ({range}) => {
           if (!range) {
             return;
           }
@@ -112,11 +147,11 @@ export default class Editor extends React.Component {
           this._mark = this.codeMirror.markText(
             start,
             end,
-            {className: 'marked'}
+            {className: 'marked'},
           );
         }),
 
-        PubSub.subscribe('CLEAR_HIGHLIGHT', (_, {range}={}) => {
+        subscribe('CLEAR_HIGHLIGHT', ({range}={}) => {
           if (!range ||
             this._markerRange &&
             range[0] === this._markerRange[0] &&
@@ -128,7 +163,7 @@ export default class Editor extends React.Component {
               this._mark = null;
             }
           }
-        })
+        }),
       );
     }
 
@@ -142,7 +177,7 @@ export default class Editor extends React.Component {
     this._unbindHandlers();
     this._markerRange = null;
     this._mark = null;
-    let container = this.refs.container;
+    let container = this.container;
     container.removeChild(container.children[0]);
     this.codeMirror = null;
   }
@@ -157,7 +192,7 @@ export default class Editor extends React.Component {
     for (let i = 0; i < cmHandlers.length; i += 2) {
       this.codeMirror.off(cmHandlers[i], cmHandlers[i+1]);
     }
-    this._subscriptions.forEach(PubSub.unsubscribe);
+    clear(this._subscriptions);
   }
 
   _onContentChange() {
@@ -168,33 +203,35 @@ export default class Editor extends React.Component {
     };
     this.setState(
       {value: args.value},
-      () => this.props.onContentChange(args)
+      () => this.props.onContentChange(args),
     );
   }
 
   _onActivity() {
     this.props.onActivity(
-      this.codeMirror.getDoc().indexFromPos(this.codeMirror.getCursor())
+      this.codeMirror.getDoc().indexFromPos(this.codeMirror.getCursor()),
     );
   }
 
   render() {
     return (
-      <div className="editor" ref="container" />
+      <div className="editor" ref={c => this.container = c}/>
     );
   }
 }
 
 Editor.propTypes = {
-  value: React.PropTypes.string,
-  highlight: React.PropTypes.bool,
-  lineNumbers: React.PropTypes.bool,
-  readOnly: React.PropTypes.bool,
-  onContentChange: React.PropTypes.func,
-  onActivity: React.PropTypes.func,
-  posFromIndex: React.PropTypes.func,
-  error: React.PropTypes.object,
-  mode: React.PropTypes.string,
+  value: PropTypes.string,
+  highlight: PropTypes.bool,
+  lineNumbers: PropTypes.bool,
+  readOnly: PropTypes.bool,
+  onContentChange: PropTypes.func,
+  onActivity: PropTypes.func,
+  posFromIndex: PropTypes.func,
+  error: PropTypes.object,
+  mode: PropTypes.string,
+  enableFormatting: PropTypes.bool,
+  keyMap: PropTypes.string,
 };
 
 Editor.defaultProps = {
@@ -203,6 +240,7 @@ Editor.defaultProps = {
   lineNumbers: true,
   readOnly: false,
   mode: 'javascript',
+  keyMap: 'default',
   onContentChange: () => {},
   onActivity: () => {},
 };

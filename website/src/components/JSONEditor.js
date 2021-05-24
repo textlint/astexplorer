@@ -3,12 +3,13 @@ import 'codemirror/mode/javascript/javascript';
 import 'codemirror/addon/fold/foldgutter';
 import 'codemirror/addon/fold/foldcode';
 import 'codemirror/addon/fold/brace-fold';
-import PubSub from 'pubsub-js';
+import PropTypes from 'prop-types';
+import {subscribe, clear} from '../utils/pubsub.js';
 import React from 'react';
 
 export default class Editor extends React.Component {
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) {
     if (nextProps.value !== this.codeMirror.getValue()) {
       // preserve scroll position
       let info = this.codeMirror.getScrollInfo();
@@ -24,7 +25,7 @@ export default class Editor extends React.Component {
   componentDidMount() {
     this._subscriptions = [];
     this.codeMirror = CodeMirror( // eslint-disable-line new-cap
-      this.refs.container,
+      this.container,
       {
         value: this.props.value,
         mode: {name: 'javascript', json: true},
@@ -32,37 +33,37 @@ export default class Editor extends React.Component {
         lineNumbers: true,
         foldGutter: true,
         gutters: ['CodeMirror-linenumbers', 'CodeMirror-foldgutter'],
-      }
+      },
     );
 
     this._subscriptions.push(
-      PubSub.subscribe('PANEL_RESIZE', () => {
+      subscribe('PANEL_RESIZE', () => {
         if (this.codeMirror) {
           this.codeMirror.refresh();
         }
-      })
+      }),
     );
   }
 
   componentWillUnmount() {
     this._unbindHandlers();
-    let container = this.refs.container;
+    let container = this.container;
     container.removeChild(container.children[0]);
     this.codeMirror = null;
   }
 
   _unbindHandlers() {
-    this._subscriptions.forEach(PubSub.unsubscribe);
+    clear(this._subscriptions);
   }
 
   render() {
     return (
-      <div id="JSONEditor" className={this.props.className} ref="container" />
+      <div id="JSONEditor" className={this.props.className} ref={c => this.container = c}/>
     );
   }
 }
 
 Editor.propTypes = {
-  value: React.PropTypes.string,
-  className: React.PropTypes.string,
+  value: PropTypes.string,
+  className: PropTypes.string,
 };

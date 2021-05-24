@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import {getParserByID} from '../../parsers';
 
@@ -13,6 +14,7 @@ export default class ParserButton extends React.Component {
   }
 
   render() {
+    const parsers = this.props.category.parsers.filter(p => p.showInMenu);
     return (
       <div className="button menuButton">
         <span>
@@ -20,7 +22,7 @@ export default class ParserButton extends React.Component {
           &nbsp;{this.props.parser.displayName}
         </span>
         <ul>
-          {this.props.category.parsers.map(parser => (
+          {parsers.map(parser => (
             <li key={parser.id} onClick={this._onClick} data-id={parser.id}>
               <button type="button" >
                 {parser.displayName}
@@ -32,7 +34,7 @@ export default class ParserButton extends React.Component {
           type="button"
           title="Parser Settings"
           style={{minWidth: 0}}
-          disabled={!this.props.parser.renderSettings}
+          disabled={!this.props.parser.hasSettings()}
           onClick={this.props.onParserSettingsButtonClick}>
           <i className="fa fa-cog fa-fw" />
         </button>
@@ -42,8 +44,8 @@ export default class ParserButton extends React.Component {
 }
 
 ParserButton.propTypes = {
-  onParserChange: React.PropTypes.func,
-  onParserSettingsButtonClick: React.PropTypes.func,
-  parser: React.PropTypes.object,
-  category: React.PropTypes.object,
+  onParserChange: PropTypes.func,
+  onParserSettingsButtonClick: PropTypes.func,
+  parser: PropTypes.object,
+  category: PropTypes.object,
 };

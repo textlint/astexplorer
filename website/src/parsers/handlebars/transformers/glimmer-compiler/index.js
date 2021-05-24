@@ -7,15 +7,19 @@ export default {
   id: ID,
   displayName: ID,
   version: pkg.version,
-  homepage: pkg.homepage || 'https://github.com/tildeio/glimmer',
+  homepage: pkg.homepage || 'https://github.com/glimmerjs/glimmer-vm',
 
   defaultParserID: 'glimmer',
 
   loadTransformer(callback) {
-    require(['@glimmer/compiler'], callback);
+    require(
+      ['../../../transpilers/babel', '@glimmer/compiler'],
+      (transpile, glimmer) => callback({ transpile: transpile.default, glimmer }),
+    );
   },
 
-  transform(glimmer, transformCode, code) {
+  transform({ transpile, glimmer }, transformCode, code) {
+    transformCode = transpile(transformCode);
     const transformModule = compileModule(transformCode);
 
     // allow "export default" instead of "module.exports = "

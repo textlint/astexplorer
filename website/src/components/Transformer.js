@@ -1,33 +1,40 @@
 import Editor from './Editor';
 import JSCodeshiftEditor from './JSCodeshiftEditor';
-import PubSub from 'pubsub-js';
-import React from 'react';
+import PropTypes from 'prop-types';
+import {publish} from '../utils/pubsub.js';
+import * as React from 'react';
 import SplitPane from './SplitPane';
 import TransformOutput from './TransformOutput';
+import PrettierButton from './buttons/PrettierButton';
 
 function resize() {
-  PubSub.publish('PANEL_RESIZE');
+  publish('PANEL_RESIZE');
 }
 
 export default function Transformer(props) {
-  const editor = React.createElement(
+  const plainEditor = React.createElement(
     props.transformer.id === 'jscodeshift' ? JSCodeshiftEditor : Editor,
     {
       highlight: false,
       value: props.transformCode,
       onContentChange: props.onContentChange,
-    }
+      enableFormatting: props.enableFormatting,
+      keyMap: props.keyMap,
+    },
   );
+
+  const formattingEditor = (<div style={{flex: 1, minHeight: 0, minWidth: 0, position: 'relative', display: 'flex'}}>
+    <PrettierButton toggleFormatting={props.toggleFormatting} enableFormatting={props.enableFormatting}/>
+    {plainEditor}
+  </div>)
 
   return (
     <SplitPane
       className="splitpane"
       onResize={resize}>
-      {editor}
+      {formattingEditor}
       <TransformOutput
-        transformer={props.transformer}
-        transformCode={props.transformCode}
-        code={props.code}
+        transformResult={props.transformResult}
         mode={props.mode}
       />
     </SplitPane>
@@ -35,10 +42,13 @@ export default function Transformer(props) {
 }
 
 Transformer.propTypes = {
-  defaultTransformCode: React.PropTypes.string,
-  transformCode: React.PropTypes.string,
-  transformer: React.PropTypes.object,
-  code: React.PropTypes.string,
-  mode: React.PropTypes.string,
-  onContentChange: React.PropTypes.func,
+  defaultTransformCode: PropTypes.string,
+  transformCode: PropTypes.string,
+  transformer: PropTypes.object,
+  mode: PropTypes.string,
+  keyMap: PropTypes.string,
+  onContentChange: PropTypes.func,
+  toggleFormatting: PropTypes.func,
+  enableFormatting: PropTypes.bool,
+  transformResult: PropTypes.object,
 };

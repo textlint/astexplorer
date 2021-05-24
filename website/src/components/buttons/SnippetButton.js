@@ -1,9 +1,10 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 import ForkButton from './ForkButton';
 import NewButton from './NewButton';
 import SaveButton from './SaveButton';
 import ShareButton from './ShareButton';
-import cx from 'classnames';
+import cx from '../../utils/classnames.js';
 
 export default function SnippetButton(props) {
   const canForkAndNotSave = props.canFork && !props.canSave;
@@ -45,10 +46,10 @@ export default function SnippetButton(props) {
 }
 
 SnippetButton.propTypes = {
-  canFork: React.PropTypes.bool,
-  canSave: React.PropTypes.bool,
-  forking: React.PropTypes.bool,
-  onFork: React.PropTypes.func,
-  onSave: React.PropTypes.func,
-  saving: React.PropTypes.bool,
+  canFork: PropTypes.bool,
+  canSave: PropTypes.bool,
+  forking: PropTypes.bool,
+  onFork: PropTypes.func,
+  onSave: PropTypes.func,
+  saving: PropTypes.bool,
 };

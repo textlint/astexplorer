@@ -1,44 +1,8 @@
 import React from 'react';
 import defaultParserInterface from './utils/defaultESTreeParserInterface';
 import pkg from 'espree/package.json';
-import SettingsRenderer from '../utils/SettingsRenderer';
 
 const ID = 'espree';
-const defaultOptions = {
-  range: true,
-  loc: false,
-  comment: false,
-  attachComment: false,
-  tokens: false,
-  tolerant: true,
-  ecmaVersion: 6,
-  sourceType: 'module',
-
-  ecmaFeatures: {
-    jsx: true,
-    globalReturn: true,
-    experimentalObjectRestSpread: true,
-  },
-};
-const parserSettingsConfiguration = {
-  fields: [
-    ['ecmaVersion', [3, 5, 6, 7], value => Number(value)],
-    ['sourceType', ['script', 'module']],
-    'range',
-    'loc',
-    'comment',
-    'attachComment',
-    'tokens',
-    'tolerant',
-    {
-      key: 'ecmaFeatures',
-      title: 'ecmaFeatures',
-      fields: Object.keys(defaultOptions.ecmaFeatures),
-      settings:
-        settings => settings.ecmaFeatures || {...defaultOptions.ecmaFeatures},
-    },
-  ],
-};
 
 export default {
   ...defaultParserInterface,
@@ -54,7 +18,7 @@ export default {
   },
 
   parse(espree, code, options) {
-    return espree.parse(code, {...defaultOptions, ...options});
+    return espree.parse(code, options);
   },
 
   nodeToRange(node) {
@@ -63,21 +27,64 @@ export default {
     }
   },
 
+  getDefaultOptions() {
+    return {
+      range: true,
+      loc: false,
+      comment: false,
+      attachComment: false,
+      tokens: false,
+      tolerant: false,
+      ecmaVersion: 10,
+      sourceType: 'module',
+
+      ecmaFeatures: {
+        jsx: true,
+        globalReturn: true,
+        impliedStrict: false,
+      },
+    };
+  },
+
+  _getSettingsConfiguration() {
+    const defaultOptions = this.getDefaultOptions();
+
+    return {
+      fields: [
+        ['ecmaVersion', [3, 5, 6, 7, 8, 9, 10, 11], value => Number(value)],
+        ['sourceType', ['script', 'module']],
+        'range',
+        'loc',
+        'comment',
+        'attachComment',
+        'tokens',
+        'tolerant',
+        {
+          key: 'ecmaFeatures',
+          title: 'ecmaFeatures',
+          fields: Object.keys(defaultOptions.ecmaFeatures),
+          settings:
+          settings => settings.ecmaFeatures || {...defaultOptions.ecmaFeatures},
+        },
+      ],
+    };
+  },
+
   renderSettings(parserSettings, onChange) {
     return (
       <div>
         <p>
           <a
             href="https://github.com/eslint/espree#usage"
-            target="_blank">
+            target="_blank" rel="noopener noreferrer">
             Option descriptions
           </a>
         </p>
-        <SettingsRenderer
-          settingsConfiguration={parserSettingsConfiguration}
-          parserSettings={{...defaultOptions, ...parserSettings}}
-          onChange={onChange}
-        />
+        {defaultParserInterface.renderSettings.call(
+          this,
+          parserSettings,
+          onChange,
+        )}
       </div>
     );
   },
