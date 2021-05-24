@@ -4,173 +4,29 @@
     <title>textlint AST explorer</title>
     <meta charset="UTF-8">
     <meta name="description" content="An online AST explorer.">
-    <script>/******/ (function(modules) { // webpackBootstrap
-/******/ 	// install a JSONP callback for chunk loading
-/******/ 	var parentJsonpFunction = window["webpackJsonp"];
-/******/ 	window["webpackJsonp"] = function webpackJsonpCallback(chunkIds, moreModules, executeModules) {
-/******/ 		// add "moreModules" to the modules object,
-/******/ 		// then flag all "chunkIds" as loaded and fire callback
-/******/ 		var moduleId, chunkId, i = 0, resolves = [], result;
-/******/ 		for(;i < chunkIds.length; i++) {
-/******/ 			chunkId = chunkIds[i];
-/******/ 			if(installedChunks[chunkId])
-/******/ 				resolves.push(installedChunks[chunkId][0]);
-/******/ 			installedChunks[chunkId] = 0;
-/******/ 		}
-/******/ 		for(moduleId in moreModules) {
-/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
-/******/ 				modules[moduleId] = moreModules[moduleId];
-/******/ 			}
-/******/ 		}
-/******/ 		if(parentJsonpFunction) parentJsonpFunction(chunkIds, moreModules, executeModules);
-/******/ 		while(resolves.length)
-/******/ 			resolves.shift()();
-/******/ 		if(executeModules) {
-/******/ 			for(i=0; i < executeModules.length; i++) {
-/******/ 				result = __webpack_require__(__webpack_require__.s = executeModules[i]);
-/******/ 			}
-/******/ 		}
-/******/ 		return result;
-/******/ 	};
-/******/
-/******/ 	// The module cache
-/******/ 	var installedModules = {};
-/******/
-/******/ 	// objects to store loaded and loading chunks
-/******/ 	var installedChunks = {
-/******/ 		12: 0
-/******/ 	};
-/******/
-/******/ 	// The require function
-/******/ 	function __webpack_require__(moduleId) {
-/******/
-/******/ 		// Check if module is in cache
-/******/ 		if(installedModules[moduleId])
-/******/ 			return installedModules[moduleId].exports;
-/******/
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = installedModules[moduleId] = {
-/******/ 			i: moduleId,
-/******/ 			l: false,
-/******/ 			exports: {}
-/******/ 		};
-/******/
-/******/ 		// Execute the module function
-/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
-/******/ 		// Flag the module as loaded
-/******/ 		module.l = true;
-/******/
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/
-/******/ 	// This file contains only the entry chunk.
-/******/ 	// The chunk loading function for additional chunks
-/******/ 	__webpack_require__.e = function requireEnsure(chunkId) {
-/******/ 		if(installedChunks[chunkId] === 0)
-/******/ 			return Promise.resolve();
-/******/
-/******/ 		// an Promise means "currently loading".
-/******/ 		if(installedChunks[chunkId]) {
-/******/ 			return installedChunks[chunkId][2];
-/******/ 		}
-/******/ 		// start chunk loading
-/******/ 		var head = document.getElementsByTagName('head')[0];
-/******/ 		var script = document.createElement('script');
-/******/ 		script.type = 'text/javascript';
-/******/ 		script.charset = 'utf-8';
-/******/ 		script.async = true;
-/******/ 		script.timeout = 120000;
-/******/
-/******/ 		if (__webpack_require__.nc) {
-/******/ 			script.setAttribute("nonce", __webpack_require__.nc);
-/******/ 		}
-/******/ 		script.src = __webpack_require__.p + "" + ({"7":"app","8":"parsermeta","9":"style"}[chunkId]||chunkId) + "-" + {"0":"1cab094e1a8f79f4eb7d","1":"b3aa957200f753a76a41","2":"ee1e9ec504c2de8ae7af","3":"119b1cacd304f010cebc","4":"c859d19b410a68e4cbf5","5":"671852d4aecea1d2477e","6":"fc65116032a00217a0ff","7":"e9e517ea30b974c4b823","8":"138e3068650d6af23227","9":"6400054830231ec0c43d","10":"72d42583869f9cc3ea30"}[chunkId] + "-5.js";
-/******/ 		var timeout = setTimeout(onScriptComplete, 120000);
-/******/ 		script.onerror = script.onload = onScriptComplete;
-/******/ 		function onScriptComplete() {
-/******/ 			// avoid mem leaks in IE.
-/******/ 			script.onerror = script.onload = null;
-/******/ 			clearTimeout(timeout);
-/******/ 			var chunk = installedChunks[chunkId];
-/******/ 			if(chunk !== 0) {
-/******/ 				if(chunk) chunk[1](new Error('Loading chunk ' + chunkId + ' failed.'));
-/******/ 				installedChunks[chunkId] = undefined;
-/******/ 			}
-/******/ 		};
-/******/
-/******/ 		var promise = new Promise(function(resolve, reject) {
-/******/ 			installedChunks[chunkId] = [resolve, reject];
-/******/ 		});
-/******/ 		installedChunks[chunkId][2] = promise;
-/******/
-/******/ 		head.appendChild(script);
-/******/ 		return promise;
-/******/ 	};
-/******/
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = modules;
-/******/
-/******/ 	// expose the module cache
-/******/ 	__webpack_require__.c = installedModules;
-/******/
-/******/ 	// identity function for calling harmony imports with the correct context
-/******/ 	__webpack_require__.i = function(value) { return value; };
-/******/
-/******/ 	// define getter function for harmony exports
-/******/ 	__webpack_require__.d = function(exports, name, getter) {
-/******/ 		if(!__webpack_require__.o(exports, name)) {
-/******/ 			Object.defineProperty(exports, name, {
-/******/ 				configurable: false,
-/******/ 				enumerable: true,
-/******/ 				get: getter
-/******/ 			});
-/******/ 		}
-/******/ 	};
-/******/
-/******/ 	// getDefaultExport function for compatibility with non-harmony modules
-/******/ 	__webpack_require__.n = function(module) {
-/******/ 		var getter = module && module.__esModule ?
-/******/ 			function getDefault() { return module['default']; } :
-/******/ 			function getModuleExports() { return module; };
-/******/ 		__webpack_require__.d(getter, 'a', getter);
-/******/ 		return getter;
-/******/ 	};
-/******/
-/******/ 	// Object.prototype.hasOwnProperty.call
-/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-/******/
-/******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
-/******/
-/******/ 	// on error function for async loading
-/******/ 	__webpack_require__.oe = function(err) { console.error(err); throw err; };
-/******/ })
-/************************************************************************/
-/******/ ([]);</script>
-    <!-- Hide Save -->
-    <style>
-      #Toolbar > div:nth-child(2) > ul > li:nth-child(2){
-        display:none!important;
-      }
-    </style>
-  <link rel="shortcut icon" href="favicon.png"><link href="vendor-1a4a4e75e54912e1873c.css" rel="stylesheet"><link href="style-6400054830231ec0c43d.css" rel="stylesheet"><link href="app-e9e517ea30b974c4b823.css" rel="stylesheet"></head>
+    <script>
+      <!-- NOPE -->
+      window.ga = () => {}
+    </script>
+    
+  <link rel="shortcut icon" href="favicon.png"><link href="vendors~app-e858ccbf606fff156e3e-27.css" rel="stylesheet"><link href="app-36c3010f354471c65a64-27.css" rel="stylesheet"></head>
   <body>
     <div id="page">
       <div id="container"></div>
       <div id="contribution">
         Built with
-        <a href="http://facebook.github.io/react/">React</a>,
-        <a href="http://babeljs.io/">Babel</a>,
-        <a href="http://fortawesome.github.io/Font-Awesome/">Font Awesome</a>,
-        <a href="http://codemirror.net/">CodeMirror</a>
-        <a href="https://expressjs.com">Express</a>
+        <a href="https://reactjs.org/">React</a>,
+        <a href="https://babeljs.io/">Babel</a>,
+        <a href="https://fontawesome.com/">Font Awesome</a>,
+        <a href="https://codemirror.net/">CodeMirror</a>,
+        <a href="https://expressjs.com/">Express</a>,
         and
-        <a href="https://webpack.github.io/">WebPack</a>
+        <a href="https://webpack.js.org/">webpack</a>
         |
         <a href="https://github.com/textlint/astexplorer">GitHub</a>
+        |
+        <span>@@COMMIT@@</span>
       </div>
     </div>
-  <script type="text/javascript" src="vendor-1a4a4e75e54912e1873c-5.js"></script><script type="text/javascript" src="style-6400054830231ec0c43d-5.js"></script><script type="text/javascript" src="parsermeta-138e3068650d6af23227-5.js"></script><script type="text/javascript" src="app-e9e517ea30b974c4b823-5.js"></script></body>
+  <script type="text/javascript">!function(e){function webpackJsonpCallback(r){for(var a,c,n=r[0],u=r[1],i=r[2],p=0,f=[];p<n.length;p++)c=n[p],Object.prototype.hasOwnProperty.call(_,c)&&_[c]&&f.push(_[c][0]),_[c]=0;for(a in u)Object.prototype.hasOwnProperty.call(u,a)&&(e[a]=u[a]);for(o&&o(r);f.length;)f.shift()();return t.push.apply(t,i||[]),checkDeferredModules()}function checkDeferredModules(){for(var e,r=0;r<t.length;r++){for(var a=t[r],c=!0,n=1;n<a.length;n++){var o=a[n];0!==_[o]&&(c=!1)}c&&(t.splice(r--,1),e=__webpack_require__(__webpack_require__.s=a[0]))}return e}var r={},_={3:0},t=[];function __webpack_require__(_){if(r[_])return r[_].exports;var t=r[_]={i:_,l:!1,exports:{}};return e[_].call(t.exports,t,t.exports,__webpack_require__),t.l=!0,t.exports}__webpack_require__.e=function requireEnsure(e){var r=[],t=_[e];if(0!==t)if(t)r.push(t[2]);else{var a=new Promise((function(r,a){t=_[e]=[r,a]}));r.push(t[2]=a);var c,n=document.createElement("script");n.charset="utf-8",n.timeout=120,__webpack_require__.nc&&n.setAttribute("nonce",__webpack_require__.nc),n.src=function jsonpScriptSrc(e){return __webpack_require__.p+""+({}[e]||e)+"-"+{0:"e63372bb1aed781de92d",5:"d524dd992fbab98d4250",6:"2363781cc6d578c2dbaf",7:"366ae09e7883867dfc2e",8:"c9628894696494eff7a0",9:"b0988326c61610ed528d",10:"8dd8af9d358235ed87b5",11:"c0356800a84b510cebaf",12:"a4c96f39a5ef88eb0785",13:"a7c17b939a68248450a3",14:"6a47749315cdac7ec7e8",15:"e886e3646d3e2414fcc7",16:"6f742f510e16ae60726f",17:"b8ce1a223c17dac7c578",18:"4cb4c44d63997b93ace8",19:"e296aa1207bf13d13942",20:"80f25ade43dcf415d269",21:"1e2b436b3746785ebf06"}[e]+"-27.js"}(e);var o=new Error;c=function(r){n.onerror=n.onload=null,clearTimeout(u);var t=_[e];if(0!==t){if(t){var a=r&&("load"===r.type?"missing":r.type),c=r&&r.target&&r.target.src;o.message="Loading chunk "+e+" failed.\n("+a+": "+c+")",o.name="ChunkLoadError",o.type=a,o.request=c,t[1](o)}_[e]=void 0}};var u=setTimeout((function(){c({type:"timeout",target:n})}),12e4);n.onerror=n.onload=c,document.head.appendChild(n)}return Promise.all(r)},__webpack_require__.m=e,__webpack_require__.c=r,__webpack_require__.d=function(e,r,_){__webpack_require__.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:_})},__webpack_require__.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},__webpack_require__.t=function(e,r){if(1&r&&(e=__webpack_require__(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var _=Object.create(null);if(__webpack_require__.r(_),Object.defineProperty(_,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var t in e)__webpack_require__.d(_,t,function(r){return e[r]}.bind(null,t));return _},__webpack_require__.n=function(e){var r=e&&e.__esModule?function getDefault(){return e.default}:function getModuleExports(){return e};return __webpack_require__.d(r,"a",r),r},__webpack_require__.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},__webpack_require__.p="",__webpack_require__.oe=function(e){throw console.error(e),e};var a=window.webpackJsonp=window.webpackJsonp||[],c=a.push.bind(a);a.push=webpackJsonpCallback,a=a.slice();for(var n=0;n<a.length;n++)webpackJsonpCallback(a[n]);var o=c;checkDeferredModules()}([]);</script><script type="text/javascript" src="vendors~app-cb185f73364189bd754e-27.js"></script><script type="text/javascript" src="parsers~app-4f29c647ac6c00a44ad8-27.js"></script><script type="text/javascript" src="app-c2272b8d327058900715-27.js"></script></body>
 </html>
