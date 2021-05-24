@@ -1,10 +1,12 @@
 // const localRequire = require.context('./', true, /^\.\/(?!utils)[^/]+\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
 const localRequire = require.context('./', true, /^\.\/(md|html|txt)\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
+function interopRequire(module) {
+    return module.__esModule ? module.default : module;
+}
 
 const files =
   localRequire.keys()
   .map(name => name.split('/').slice(1));
-console.log("files", files);
 const categoryByID = {};
 const parserByID = {};
 const transformerByID = {};
@@ -21,8 +23,6 @@ export const categories =
   .filter(name => name[1] === 'index.js')
   .map(([catName]) => {
     let category = localRequire(`./${catName}/index.js`);
-
-    console.log(category)
     categoryByID[category.id] = category;
 
     category.codeExample = interopRequire(localRequire(`./${catName}/codeExample.txt`))

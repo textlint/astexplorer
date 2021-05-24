@@ -1,5 +1,5 @@
 import compileModule from '../../../utils/compileModule';
-import pkg from 'textlint/package.json';
+import pkg from '@textlint/kernel/package.json';
 
 const ID = 'textlint:txt';
 
@@ -27,24 +27,33 @@ export default {
     displayName: ID,
     version: pkg.version,
     homepage: pkg.homepage,
-
+    
     defaultParserID: 'textlint:txt-to-ast',
-
+    
     loadTransformer(callback) {
-        require(['textlint/lib/textlint-core'], (TextLintCore) => {
-            callback({TextLintCore});
+        require(['@textlint/kernel'], ({ TextlintKernel }, { default: plugin }) => {
+            callback({ TextlintKernel, plugin });
         })
     },
-
-    transform({TextLintCore}, transformCode, code) {
-        const textlintCore = new TextLintCore();
-        let rule = compileModule( // eslint-disable-line no-shadow
+    
+    transform({ TextlintKernel, plugin }, transformCode, code) {
+        const kernel = new TextlintKernel();
+        const rule = compileModule( // eslint-disable-line no-shadow
             transformCode
         );
-        textlintCore.setupRules({
-            'astExplorerRule': rule,
-        });
-        return textlintCore.lintText(code, '.txt').then(result => {
+        return kernel.lintText(code, {
+            rules: [{
+                ruleId: "astExplorerRule",
+                rule: rule,
+                options: true
+            }],
+            plugins: [{
+                pluginId: "txt",
+                plugin: plugin,
+                options: true
+            }],
+            ext: ".txt"
+        }).then(result => {
             return formatResults(result, code);
         });
     },

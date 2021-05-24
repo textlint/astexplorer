@@ -1,6 +1,6 @@
 import defaultParserInterface from '../utils/defaultParserInterface';
 
-import pkg from 'txt-to-ast/package.json';
+import pkg from '@textlint/text-to-ast/package.json';
 
 const ID = 'textlint:txt-to-ast';
 

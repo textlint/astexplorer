@@ -1,6 +1,6 @@
 import defaultParserInterface from '../utils/defaultParserInterface';
 
-import pkg from 'markdown-to-ast/package.json';
+import pkg from '@textlint/markdown-to-ast/package.json';
 
 const ID = 'textlint:markdown-to-ast';
 
