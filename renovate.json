@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "enabledManagers": [
+    "npm"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "enabled": false
+    },
+    {
+      "matchPackagePatterns": [
+        "textlint",
+        "^@textlint/",
+        "textlint-plugin-html"
+      ],
+      "enabled": true
+    }
+  ]
+}
