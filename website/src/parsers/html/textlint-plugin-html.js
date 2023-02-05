@@ -1,22 +1,23 @@
 import defaultParserInterface from '../utils/defaultParserInterface';
 
-import pkg from '@textlint/markdown-to-ast/package.json';
+import pkg from 'textlint-plugin-html/package.json';
 
-const ID = 'textlint:markdown-to-ast';
+const ID = 'textlint:html';
 
 export default {
     ...defaultParserInterface,
     id: ID,
-    displayName: "textlint",
+    displayName: "textlint-plugin-html",
     version: pkg.version,
     homepage: pkg.homepage,
     locationProps: new Set(['loc', 'range']),
 
     loadParser(callback) {
-        require(['@textlint/markdown-to-ast'], callback);
+        require(['textlint-plugin-html/module/html-to-ast'], callback);
     },
 
     parse(parser, text) {
+        console.log("parser", parser);
         return parser.parse(text);
     },
 

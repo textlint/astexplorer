@@ -1,5 +1,5 @@
 // const localRequire = require.context('./', true, /^\.\/(?!utils)[^/]+\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
-const localRequire = require.context('./', true, /^\.\/(md|html|txt)\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
+const localRequire = require.context('./', true, /^\.\/(textlint-.*?)\/(transformers\/([^/]+)\/)?(codeExample\.txt|[^/]+?\.js)$/);
 function interopRequire(module) {
     return module.__esModule ? module.default : module;
 }

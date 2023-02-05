@@ -1,7 +1,7 @@
 import compileModule from '../../../utils/compileModule';
 import pkg from '@textlint/kernel/package.json';
 
-const ID = 'textlint:txt';
+const ID = 'textlint-plugin-html';
 
 function formatResults(results, code) {
     const format = (message) => {
@@ -28,15 +28,16 @@ export default {
     version: pkg.version,
     homepage: pkg.homepage,
     
-    defaultParserID: 'textlint:txt-to-ast',
+    defaultParserID: 'textlint-plugin-html',
     
     loadTransformer(callback) {
-        require(['@textlint/kernel'], ({ TextlintKernel }, { default: plugin }) => {
+        require(['@textlint/kernel', "textlint-plugin-html"], ({ TextlintKernel }, plugin) => {
             callback({ TextlintKernel, plugin });
         })
     },
     
     transform({ TextlintKernel, plugin }, transformCode, code) {
+        console.log({ TextlintKernel, plugin })
         const kernel = new TextlintKernel();
         const rule = compileModule( // eslint-disable-line no-shadow
             transformCode
@@ -48,11 +49,11 @@ export default {
                 options: true
             }],
             plugins: [{
-                pluginId: "txt",
-                plugin: plugin,
+                pluginId: "html",
+                plugin: plugin.default,
                 options: true
             }],
-            ext: ".txt"
+            ext: ".html"
         }).then(result => {
             return formatResults(result, code);
         });
