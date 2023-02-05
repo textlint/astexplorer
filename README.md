@@ -4,9 +4,9 @@
 
 This version limited for [textlint](http://textlint.github.io/ "textlint").
 
-- Markdown
-- Plain text
-- [textlint-plugin-html]https://github.com/textlint/textlint-plugin-html)
+- [@textlint/textlint-plugin-markdown](https://github.com/textlint/textlint/tree/master/packages/%40textlint/textlint-plugin-markdown)
+- [@textlint/textlint-plugin-text](https://github.com/textlint/textlint/tree/master/packages/%40textlint/textlint-plugin-text)
+- [textlint-plugin-html](https://github.com/textlint/textlint-plugin-html)
 
 Visit [https://textlint.github.io/astexplorer](https://textlint.github.io/astexplorer).
 
