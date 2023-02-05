@@ -1,0 +1,11 @@
+module.exports = function (context) {
+    const {Syntax, RuleError, report, getSource} = context;
+    return {
+        [Syntax.Str](node){
+            const value = getSource(node);
+            if(/TITLE/i.test(value)) {
+                report(node, new RuleError("Error: includes title"));
+            }
+        }
+    };
+}
