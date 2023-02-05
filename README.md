@@ -6,12 +6,11 @@ This version limited for [textlint](http://textlint.github.io/ "textlint").
 
 - Markdown
 - Plain text
+- [textlint-plugin-html]https://github.com/textlint/textlint-plugin-html)
 
-Bellow is original text.
+Visit [https://textlint.github.io/astexplorer](https://textlint.github.io/astexplorer).
 
-Please Visit [https://textlint.github.io/astexplorer](https://textlint.github.io/astexplorer).
-
-**Notes**
+**Developer Notes**
 
 - Deploy: use `website/deploy.sh`
 
