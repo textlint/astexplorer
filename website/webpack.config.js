@@ -99,6 +99,11 @@ const plugins = [
 ];
 
 module.exports = Object.assign({
+  resolve: {
+    alias: {
+      'node:assert': 'assert'
+    }
+  },
   optimization: {
     moduleIds: DEV ? 'named' : 'hashed',
     runtimeChunk: 'single',
@@ -246,6 +251,7 @@ module.exports = Object.assign({
   },
 
   node: {
+    assert: 'empty',
     child_process: 'empty',
     fs: 'empty',
     module: 'empty',
