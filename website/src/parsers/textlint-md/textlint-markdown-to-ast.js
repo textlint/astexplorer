@@ -7,7 +7,7 @@ const ID = 'textlint:markdown-to-ast';
 export default {
     ...defaultParserInterface,
     id: ID,
-    displayName: "@textlint/text-to-ast",
+    displayName: "@textlint/markdown-to-ast",
     version: pkg.version,
     homepage: pkg.homepage,
     locationProps: new Set(['loc', 'range']),
